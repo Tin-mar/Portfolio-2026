@@ -4,120 +4,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Martin Bretonnière</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50; /* Bleu foncé pour le sérieux/tech */
-            --secondary: #e67e22; /* Orange pour rappeler ton PDF */
-            --light: #ecf0f1;
-            --dark: #1a252f;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Palette de couleurs plus moderne (Slate & Orange Vif) */
+            --primary: #0f172a;      /* Bleu nuit très foncé */
+            --primary-light: #334155; /* Gris ardoise */
+            --accent: #f97316;       /* Orange dynamique */
+            --bg-color: #f8fafc;     /* Fond très clair légèrement bleuté */
+            --card-bg: #ffffff;      /* Blanc pur pour les cartes */
+            --text-main: #1e293b;    /* Texte principal */
+            --text-muted: #64748b;   /* Texte secondaire */
+            --font-main: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Défilement fluide lors du clic sur le menu */
         }
 
         body {
             font-family: var(--font-main);
             margin: 0;
             padding: 0;
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
-        /* Header / Hero Section */
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 4rem 2rem;
+        /* Navigation style "Glassmorphism" */
+        nav {
+            background: rgba(15, 23, 42, 0.95); /* Semi-transparent */
+            backdrop-filter: blur(10px); /* Flou d'arrière-plan */
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             text-align: center;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Header / Hero Section avec dégradé et forme géométrique */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: white;
+            padding: 6rem 2rem 8rem 2rem; /* Plus d'espace en bas pour la découpe */
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* Découpe en biais moderne */
+            margin-bottom: 2rem;
         }
 
         header h1 {
             margin: 0;
-            font-size: 3rem;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
         }
 
         header p {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            font-weight: bold;
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0;
+            opacity: 0.9;
         }
 
-        /* Navigation simple */
-        nav {
-            background: var(--dark);
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
-
-        /* Sections */
+        /* Sections générales */
         section {
-            padding: 3rem 2rem;
-            max-width: 1000px;
-            margin: auto;
-            background: white;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            max-width: 1100px;
+            margin: 0 auto 4rem auto;
         }
 
         h2 {
             color: var(--primary);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.5rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Petit trait orange sous les titres */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 0.5rem;
+            border-radius: 2px;
+        }
+
+        /* Style des blocs de texte (À propos, Objectifs) */
+        #about p, #objectives ul {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            font-size: 1.05rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Listes stylisées */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "→";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
         /* Grille des Projets (SAE) */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Cartes un peu plus larges */
             gap: 2rem;
         }
 
         .project-card {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 5px solid var(--secondary);
-            transition: transform 0.2s;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* Effet "Levitation" au survol */
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--accent);
         }
 
         .project-card h3 {
             margin-top: 0;
             color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
 
+        /* Tags (Pills) */
         .tag {
-            background: var(--primary);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 5px;
+            display: inline-block;
+            background: #e0f2fe; /* Bleu très clair */
+            color: #0284c7;      /* Bleu tech */
+            padding: 0.35rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Bouton "Détails" interactif */
+        details {
+            margin-top: auto; /* Pousse le bouton vers le bas de la carte */
+            border-top: 1px solid #f1f5f9;
+            padding-top: 1rem;
+        }
+
+        summary {
+            cursor: pointer;
+            color: var(--accent);
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: opacity 0.2s;
+        }
+
+        summary:hover {
+            opacity: 0.8;
+        }
+
+        summary::-webkit-details-marker {
+            display: none; /* Cache le triangle par défaut */
+        }
+
+        summary::after {
+            content: '+'; /* Icône personnalisée */
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details p {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* Animation d'apparition */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            background: var(--dark);
-            color: white;
-            margin-top: 2rem;
+            padding: 4rem 2rem;
+            background: var(--primary);
+            color: #94a3b8;
+            margin-top: 4rem;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -142,16 +275,16 @@
             Né le 24/10/2006, je suis passionné par l'informatique et les réseaux.
         </p>
         <p>
-            J'ai acquis une rigueur de travail notamment grâce à mes expériences académiques et mon stage d'observation à la <strong>centrale nucléaire de Flamanville</strong>[cite: 18].
+            [cite_start]J'ai acquis une rigueur de travail notamment grâce à mes expériences académiques et mon stage d'observation à la <strong>centrale nucléaire de Flamanville</strong>[cite: 18].
         </p>
     </section>
 
     <section id="objectives">
         <h2>Objectifs Professionnels</h2>
         <ul>
-            <li><strong>Ambition :</strong> Devenir Ingénieur en Cybersécurité[cite: 25].</li>
-            <li><strong>Localisation souhaitée :</strong> Normandie[cite: 27].</li>
-            <li><strong>Diplôme visé :</strong> Diplôme d'ingénieur en cybersécurité[cite: 26].</li>
+            [cite_start]<li><strong>Ambition :</strong> Devenir Ingénieur en Cybersécurité[cite: 25].</li>
+            [cite_start]<li><strong>Localisation souhaitée :</strong> Normandie[cite: 27].</li>
+            [cite_start]<li><strong>Diplôme visé :</strong> Diplôme d'ingénieur en cybersécurité[cite: 26].</li>
         </ul>
     </section>
 
@@ -161,11 +294,13 @@
             
             <div class="project-card">
                 <h3>SAE 11 : Hygiène Info & Cybersécu</h3>
-                <span class="tag">ANSSI</span> <span class="tag">SecNumAcadémie</span>
+                <div>
+                    <span class="tag">ANSSI</span> <span class="tag">SecNumAcadémie</span>
+                </div>
                 <p>Sensibilisation à l'hygiène informatique et à la cybersécurité.</p>
                 
                 <details>
-                    <summary><strong>Voir les détails</strong></summary>
+                    <summary>Voir les détails</summary>
                     <p><strong>Le Projet :</strong> Introduction aux notions de cybersécurité via le MOOC de l'ANSSI. [cite_start]Ce module certifie l'acquisition de compétences pour réduire les risques d'attaques sur les matériels du quotidien[cite: 45, 46].</p>
                     [cite_start]<p><strong>Mon Bilan :</strong> J'ai obtenu l'attestation de suivi SecNumAcadémie avec des scores élevés (90% sur la sécurité de l'authentification)[cite: 102, 116]. [cite_start]Bien que la note du QCM final ait été légèrement en dessous de mes attentes, la répartition des tâches dans le groupe a été efficace[cite: 124, 129].</p>
                 </details>
@@ -173,11 +308,13 @@
 
             <div class="project-card">
                 <h3>SAE 12 : Initiation Réseaux</h3>
-                <span class="tag">Cisco</span> <span class="tag">Architecture</span>
+                <div>
+                    <span class="tag">Cisco</span> <span class="tag">Architecture</span>
+                </div>
                 <p>Construction d'un réseau informatique à petite échelle.</p>
 
                 <details>
-                    <summary><strong>Voir les détails</strong></summary>
+                    <summary>Voir les détails</summary>
                     <p><strong>Le Projet :</strong> Mise en pratique des notions réseaux pour construire une architecture réaliste d'entreprise. [cite_start]Ce projet couvre la première moitié du diplôme "Réseaux"[cite: 137, 140].</p>
                     [cite_start]<p><strong>Mon Bilan :</strong> Cette SAÉ m'a permis d'approfondir mes connaissances et de gagner en maturité de travail de groupe[cite: 224]. [cite_start]Les livrables produits ont été très complets et récompensés, malgré les imprévus matériels rencontrés[cite: 216, 218].</p>
                 </details>
@@ -185,11 +322,13 @@
 
             <div class="project-card">
                 <h3>SAE 13 : Réflectométrie & Câblage</h3>
-                <span class="tag">Physique</span> <span class="tag">Mesures</span>
+                <div>
+                    <span class="tag">Physique</span> <span class="tag">Mesures</span>
+                </div>
                 <p>Analyse de supports de transmission (Cuivre et Fibre Optique).</p>
 
                 <details>
-                    <summary><strong>Voir les détails</strong></summary>
+                    <summary>Voir les détails</summary>
                     [cite_start]<p><strong>Le Projet :</strong> Introduction aux techniques de diagnostic de signaux (réflectométrie) et analyse des câbles RJ-45 et fibre optique[cite: 232, 233].</p>
                     [cite_start]<p><strong>Mon Bilan :</strong> J'ai obtenu d'excellents résultats (19/20 au QCM, 17.5/20 au rendu)[cite: 269, 270]. [cite_start]J'ai beaucoup apprécié ce projet, bien que nous ayons dû faire quelques approximations sur les mesures de base par manque de temps[cite: 265, 276].</p>
                 </details>
@@ -197,11 +336,13 @@
 
             <div class="project-card">
                 <h3>SAE 14 : Identité Numérique</h3>
-                <span class="tag">HTML/CSS</span> <span class="tag">W3C</span>
+                <div>
+                    <span class="tag">HTML/CSS</span> <span class="tag">W3C</span>
+                </div>
                 <p>Création et déploiement d'un site web personnel.</p>
 
                 <details>
-                    <summary><strong>Voir les détails</strong></summary>
+                    <summary>Voir les détails</summary>
                     [cite_start]<p><strong>Le Projet :</strong> Découverte des langages Web (HTML, CSS) pour concevoir un site respectant les normes W3C et WCAG, hébergé via GitHub[cite: 293, 337].</p>
                     <p><strong>Mon Bilan :</strong> C'était une première pour moi. [cite_start]J'ai réussi à créer un site fonctionnel et à structurer mon code pour qu'il soit maintenable[cite: 351, 355]. [cite_start]J'ai pris conscience de l'importance de la rigueur et de l'anticipation dans le développement web[cite: 363].</p>
                 </details>
@@ -209,11 +350,13 @@
 
             <div class="project-card">
                 <h3>SAE 15 : Traitement de Données</h3>
-                <span class="tag">JavaScript</span> <span class="tag">API PokeAPI</span>
+                <div>
+                    <span class="tag">JavaScript</span> <span class="tag">API PokeAPI</span>
+                </div>
                 <p>Développement d'un site web dynamique exploitant des données.</p>
 
                 <details>
-                    <summary><strong>Voir les détails</strong></summary>
+                    <summary>Voir les détails</summary>
                     [cite_start]<p><strong>Le Projet :</strong> Création d'un site dynamique utilisant le langage JavaScript pour récolter des données via une API (PokeAPI) et effectuer des traitements statistiques[cite: 368, 422].</p>
                     [cite_start]<p><strong>Mon Bilan :</strong> J'ai suivi une approche méthodique (HTML > CSS > JS) qui m'a aidé à rester concentré[cite: 437]. [cite_start]Ce projet m'a fait réaliser que l'interactivité JS est essentielle pour donner vie à un site, au-delà du simple aspect visuel[cite: 446].</p>
                 </details>
@@ -221,11 +364,13 @@
 
             <div class="project-card">
                 <h3>SAE 21 : Réseau Petite Structure</h3>
-                <span class="tag">Administration</span> <span class="tag">VLAN/IP</span>
+                <div>
+                    <span class="tag">Administration</span> <span class="tag">VLAN/IP</span>
+                </div>
                 <p>Conception et administration d'un réseau complet.</p>
 
                 <details>
-                    <summary><strong>Voir les détails</strong></summary>
+                    <summary>Voir les détails</summary>
                     [cite_start]<p><strong>Le Projet :</strong> Déploiement d'un réseau pour une petite structure, incluant la configuration des matériels et l'adressage IP[cite: 503].</p>
                     [cite_start]<p><strong>Mon Bilan :</strong> J'ai réussi à proposer une architecture cohérente avec une séparation claire des sous-réseaux et j'ai produit une documentation technique complète[cite: 503, 505]. [cite_start]Je me sens désormais plus à l'aise sur l'installation réseau et la gestion des pannes[cite: 515].</p>
                 </details>
@@ -233,11 +378,13 @@
 
              <div class="project-card">
                 <h3>SAE 22 : Analyse de Signaux</h3>
-                <span class="tag">RTL-SDR</span> <span class="tag">Spectre</span>
+                <div>
+                    <span class="tag">RTL-SDR</span> <span class="tag">Spectre</span>
+                </div>
                 <p>Mesure et caractérisation de signaux radio.</p>
 
                 <details>
-                    <summary><strong>Voir les détails</strong></summary>
+                    <summary>Voir les détails</summary>
                     [cite_start]<p><strong>Le Projet :</strong> Analyse de signaux d'un système de transmission à l'aide d'un analyseur de spectre et d'une antenne RTL-SDR[cite: 539, 551].</p>
                     [cite_start]<p><strong>Mon Bilan :</strong> J'ai rapidement pris en main les outils de mesure pour obtenir un affichage clair du signal[cite: 551]. [cite_start]Ce projet m'a permis de concrétiser des notions théoriques, bien que certains phénomènes (bruit de phase, lobes secondaires) restent complexes à interpréter[cite: 553, 560].</p>
                 </details>
@@ -247,7 +394,7 @@
     </section>
 
     <footer id="contact">
-        <p>&copy; 2025 Martin Bretonnière - Caen (14000) [cite: 15]</p>
+        <p>&copy; [cite_start]2025 Martin Bretonnière - Caen (14000) [cite: 15]</p>
         <p>Étudiant IUT Grand Ouest Normandie</p>
     </footer>
 
