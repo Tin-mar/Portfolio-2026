@@ -703,7 +703,7 @@
         <h1>Martin Bretonnière</h1>
         <p>Étudiant R&T | Futur Ingénieur Cybersécurité</p>
         <div class="subtitle">
-            Portfolio réflexif de 1ère année : De la découverte des réseaux à la maîtrise des outils d'analyse.
+            Portfolio réflexif de 2ème année (S3-S4) : Consolidation des acquis et spécialisation en cybersécurité.
         </div>
         <div class="scroll-indicator"></div>
     </header>
@@ -712,19 +712,19 @@
         <h2>Mon Parcours et Mes Ambitions</h2>
         <div class="narrative-box">
             <p>
-                Passionné par le fonctionnement des systèmes d'information, j'ai orienté mon cursus vers le <strong>BUT Réseaux & Télécommunications</strong> avec une vision claire : acquérir les compétences techniques nécessaires pour sécuriser les infrastructures de demain.
+                Passionné par le fonctionnement des systèmes d'information, j'ai orienté mon cursus vers le <strong>BUT Réseaux & Télécommunications</strong> avec une vision claire : acquérir les compétences techniques nécessaires pour sécuriser les infrastructures de demain. Actuellement en 2ème année (S3), je poursuis mon apprentissage en approfondissant mes connaissances en administration système, sécurité réseau et développement.
             </p>
             <p>
                 Mon déclic pour la rigueur et la sécurité s'est confirmé lors de mon stage d'observation à la <strong class="highlight">centrale nucléaire de Flamanville</strong>. J'y ai découvert qu'une procédure ne souffre d'aucune approximation, un principe que j'applique désormais dans mes configurations réseaux et mes analyses de code.
             </p>
             <p>
-                Mon objectif est de devenir <strong class="highlight">Ingénieur en Cybersécurité</strong>, idéalement en Normandie. Je ne cherche pas seulement à apprendre des commandes, mais à comprendre les vulnérabilités pour mieux protéger les systèmes, une compétence que je construis pas à pas, de l'hygiène informatique (SAE 11) à l'administration réseau complexe (SAE 21).
+                Mon objectif est de devenir <strong class="highlight">Ingénieur en Cybersécurité</strong>, idéalement en Normandie. Je ne cherche pas seulement à apprendre des commandes, mais à comprendre les vulnérabilités pour mieux protéger les systèmes, une compétence que je construis progressivement depuis la 1ère année : de l'hygiène informatique (SAE 11) à l'administration réseau complexe (SAE 21), et maintenant vers des projets plus avancés en S3-S4.
             </p>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2>Analyse de mes Projets (SAÉ)</h2>
+        <h2>Retour sur mes Projets de 1ère Année (SAÉ S1-S2)</h2>
         <div class="projects-grid">
             
             <div class="project-card">
@@ -750,7 +750,7 @@
                         <h4>Difficultés & Apprentissages</h4>
                         <p>Le principal défi a été de transformer des connaissances théoriques en réflexes pratiques. Bien que mon score au QCM final ait été légèrement en dessous de mes attentes, cette SAÉ m'a appris que la sécurité est avant tout une question de comportement quotidien.</p>
                         
-                        <a href="mooc.pdf" class="evidence-btn"><span class="evidence-icon">📄</span> Voir mon attestation SecNum</a>
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers votre attestation PDF à insérer ici'); return false;"><span class="evidence-icon">📄</span> Voir mon attestation SecNum</a>
                     </div>
                 </details>
             </div>
@@ -929,37 +929,26 @@
         <h2>Bilan Global & Perspectives</h2>
         <div class="narrative-box">
             <p>
-                Cette première année a marqué une transition majeure. Je suis passé d'une vision "consommateur" de l'informatique à une posture de <strong class="highlight">technicien capable de construire et diagnostiquer</strong>. J'ai appris que la compétence technique pure ne suffit pas : la documentation, la communication en équipe et la rigueur méthodologique sont tout aussi cruciales.
+                La première année a marqué une transition majeure. Je suis passé d'une vision "consommateur" de l'informatique à une posture de <strong class="highlight">technicien capable de construire et diagnostiquer</strong>. J'ai appris que la compétence technique pure ne suffit pas : la documentation, la communication en équipe et la rigueur méthodologique sont tout aussi cruciales. Aujourd'hui en 2ème année, je consolide ces acquis et développe une expertise plus pointue.
             </p>
             <p>
                 <strong>Plan d'évolution :</strong>
             </p>
             <ul>
-                <li><strong>Court terme (S2-S3) :</strong> Approfondir mes lacunes en JavaScript pour l'automatisation et renforcer mes bases théoriques en traitement du signal.</li>
-                <li><strong>Moyen terme :</strong> Me focaliser sur les modules de sécurité offensive et défensive pour préparer mon projet d'ingénieur.</li>
-                <li><strong>Objectif personnel :</strong> Gagner en autonomie sur le diagnostic de pannes complexes sans aide extérieure immédiate.</li>
+                <li><strong>En cours (S3-S4) :</strong> Approfondir mes compétences en administration système avancée, sécurité réseau et développement d'applications métier. Consolider mes lacunes identifiées en 1ère année (JavaScript, traitement du signal).</li>
+                <li><strong>Court terme (fin S4) :</strong> Me focaliser sur les modules de sécurité offensive et défensive, préparer mon stage de fin de 2ème année.</li>
+                <li><strong>Moyen terme (3ème année) :</strong> Me spécialiser en cybersécurité et préparer mon projet d'ingénieur avec une alternance ciblée.</li>
+                <li><strong>Objectif personnel :</strong> Gagner en autonomie sur le diagnostic de pannes complexes et maîtriser les outils de pentesting.</li>
             </ul>
         </div>
     </section>
 
     <footer id="contact">
-        <p>&copy; 2025 Martin Bretonnière - Caen (14000)</p>
+        <p>&copy; 2026 Martin Bretonnière - Caen (14000)</p>
         <p>Étudiant IUT Grand Ouest Normandie | Portfolio Universitaire</p>
     </footer>
 
     <script>
-        // Gestion fluide des details avec fermeture automatique
-        const details = document.querySelectorAll("details");
-        details.forEach((targetDetail) => {
-            targetDetail.addEventListener("click", () => {
-                details.forEach((detail) => {
-                    if (detail !== targetDetail) {
-                        detail.removeAttribute("open");
-                    }
-                });
-            });
-        });
-
         // Animation au scroll pour les éléments
         const observerOptions = {
             threshold: 0.1,
