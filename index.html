@@ -4,192 +4,708 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Réflexif | Martin Bretonnière</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a;      
-            --primary-light: #334155; 
-            --accent: #f97316;       
-            --bg-color: #f8fafc;     
-            --card-bg: #ffffff;      
-            --text-main: #1e293b;    
-            --text-muted: #475569;   
-            --font-main: 'Inter', sans-serif;
+            --primary: #0a0e27;      
+            --primary-light: #1a2642; 
+            --accent: #00d9ff;
+            --accent-secondary: #ff006e;       
+            --bg-color: #0f1419;     
+            --card-bg: #1a1f2e;      
+            --text-main: #e8edf4;    
+            --text-muted: #8892a6;   
+            --font-display: 'Archivo Black', sans-serif;
+            --font-body: 'IBM Plex Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-main);
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { 
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* Navigation */
         nav {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
+            background: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+            animation: slideDown 0.6s ease-out;
         }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         nav a {
-            color: #cbd5e1;
+            color: var(--text-muted);
             text-decoration: none;
-            margin: 0 1.2rem;
-            font-weight: 500;
-            font-size: 0.9rem;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
+            letter-spacing: 1.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            font-family: var(--font-mono);
         }
-        nav a:hover { color: var(--accent); }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
 
         /* Header / Hero */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
-            color: white;
-            padding: 6rem 2rem 8rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #0f1923 50%, var(--primary-light) 100%);
+            padding: 8rem 2rem 10rem 2rem;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            position: relative;
+            overflow: hidden;
         }
-        header h1 { font-size: 3rem; margin: 0 0 0.5rem 0; font-weight: 800; }
-        header p { font-size: 1.2rem; color: var(--accent); font-weight: 600; margin: 0; }
-        header .subtitle { font-size: 1rem; color: #94a3b8; font-weight: 400; margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 217, 255, 0.03) 2px,
+                    rgba(0, 217, 255, 0.03) 4px
+                );
+            pointer-events: none;
+        }
+        
+        header h1 { 
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin: 0 0 1rem 0;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent) 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        header p { 
+            font-size: 1.4rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header .subtitle { 
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-top: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Decorative elements in header */
+        .header-decoration {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.2;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .decoration-1 {
+            top: -100px;
+            left: -100px;
+            background: var(--accent);
+        }
+        
+        .decoration-2 {
+            bottom: -100px;
+            right: -100px;
+            background: var(--accent-secondary);
+            animation-delay: -3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, 20px) scale(1.1); }
+        }
 
         /* Sections */
-        section { padding: 2rem; max-width: 1000px; margin: 0 auto 3rem auto; }
-        h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 2rem; border-left: 5px solid var(--accent); padding-left: 1rem; }
+        section { 
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h2 { 
+            color: var(--text-main);
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 2rem;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 80%;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-secondary) 100%);
+            border-radius: 3px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 80%;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-secondary) 100%);
+            border-radius: 3px;
+            filter: blur(8px);
+            opacity: 0.6;
+        }
         
         /* Narrative Text Blocks */
         .narrative-box {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
         }
-        .narrative-box p { margin-bottom: 1rem; text-align: justify; }
-        .highlight { color: var(--accent); font-weight: 600; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .narrative-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 100%);
+        }
+        
+        .narrative-box p { 
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        .narrative-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .narrative-box ul {
+            margin-top: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .narrative-box li {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .narrative-box li::before {
+            content: '▹';
+            position: absolute;
+            left: -0.5rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .highlight { 
+            color: var(--accent);
+            font-weight: 600;
+        }
 
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Default single column for mobile */
+            grid-template-columns: 1fr;
             gap: 2rem;
         }
+        
         @media (min-width: 768px) {
-            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { 
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .project-card {
             background: var(--card-bg);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInScale 0.6s ease-out both;
         }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(255, 0, 110, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px -5px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
             border-color: var(--accent);
+            box-shadow: 
+                0 20px 40px -10px rgba(0, 217, 255, 0.2),
+                0 0 0 1px rgba(0, 217, 255, 0.1);
         }
-        .project-card h3 { color: var(--primary); margin-top: 0; }
-        .tag { background: #eff6ff; color: #1d4ed8; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-right: 0.5rem; display: inline-block; margin-bottom: 1rem; }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Stagger animation for cards */
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .project-card:nth-child(7) { animation-delay: 0.7s; }
+        
+        .project-card h3 { 
+            color: var(--text-main);
+            margin: 0 0 1rem 0;
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-card > p {
+            position: relative;
+            z-index: 1;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .tag { 
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
         
         /* Details & Reflexion styling */
-        details { margin-top: auto; border-top: 1px solid #f1f5f9; padding-top: 1rem; }
-        summary { cursor: pointer; color: var(--accent); font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        summary::-webkit-details-marker { display: none; }
-        summary::after { content: '+'; font-size: 1.5rem; }
-        details[open] summary::after { content: '-'; }
+        details { 
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+            padding-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        summary { 
+            cursor: pointer;
+            color: var(--accent);
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        summary::-webkit-details-marker { 
+            display: none;
+        }
+        
+        summary::after { 
+            content: '+';
+            font-size: 1.8rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+        
+        summary:hover {
+            background: rgba(0, 217, 255, 0.05);
+        }
+        
+        details[open] summary::after { 
+            content: '−';
+            transform: rotate(180deg);
+        }
         
         .reflection-content {
-            background: #f8fafc;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 1rem;
+            background: rgba(10, 14, 39, 0.5);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
             font-size: 0.95rem;
-            animation: fadeIn 0.4s ease;
+            animation: expandDown 0.4s ease;
+            border: 1px solid rgba(0, 217, 255, 0.05);
         }
-        .reflection-content h4 { color: var(--primary-light); margin: 1rem 0 0.5rem 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .reflection-content h4:first-child { margin-top: 0; }
-
-        /* NOUVEAU STYLE : Bloc Apprentissages Critiques */
-        .ac-block {
-            background-color: #e2e8f0;
-            border-left: 4px solid var(--primary);
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
+        
+        @keyframes expandDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .ac-block h5 {
-            margin: 0 0 0.5rem 0;
-            font-size: 0.8rem;
+        
+        .reflection-content h4 { 
+            color: var(--accent);
+            margin: 2rem 0 1rem 0;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            color: var(--primary);
-            font-weight: 800;
+            letter-spacing: 1.5px;
+            font-family: var(--font-mono);
+            font-weight: 600;
         }
+        
+        .reflection-content h4:first-child { 
+            margin-top: 0;
+        }
+        
+        .reflection-content p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* AC Block */
+        .ac-block {
+            background-color: rgba(0, 217, 255, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .ac-block h5 {
+            margin: 0 0 1rem 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            font-family: var(--font-mono);
+        }
+        
         .ac-list {
             list-style: none;
             padding: 0;
             margin: 0;
-            font-size: 0.85rem;
-            color: var(--text-main);
-        }
-        .ac-list li {
-            margin-bottom: 0.2rem;
-            display: flex;
-            align-items: flex-start;
-        }
-        .ac-list li strong {
-            margin-right: 8px;
-            color: var(--primary-light);
-            min-width: 65px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
         
-        /* Evidence / Proof Buttons */
+        .ac-list li {
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .ac-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .ac-list li strong {
+            margin-right: 8px;
+            color: var(--text-main);
+            min-width: 75px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+        
+        /* Evidence Button */
         .evidence-btn {
             display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            border: 1px dashed var(--text-muted);
-            color: var(--text-muted);
+            margin-top: 1.5rem;
+            padding: 0.7rem 1.3rem;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            color: var(--accent);
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 0.85rem;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: var(--font-mono);
+            font-weight: 600;
+            background: rgba(0, 217, 255, 0.05);
         }
-        .evidence-btn:hover { background: #e2e8f0; color: var(--primary); border-style: solid; }
-        .evidence-icon { margin-right: 5px; }
+        
+        .evidence-btn:hover { 
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--accent);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.2);
+        }
+        
+        .evidence-icon { 
+            margin-right: 8px;
+        }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Footer */
+        footer { 
+            text-align: center;
+            padding: 5rem 2rem;
+            background: var(--primary);
+            color: var(--text-muted);
+            margin-top: 6rem;
+            position: relative;
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 100%);
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
 
-        footer { text-align: center; padding: 4rem 2rem; background: var(--primary); color: #94a3b8; margin-top: 4rem; }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 5rem 1.5rem 6rem 1.5rem;
+            }
+            
+            nav a {
+                margin: 0 0.8rem;
+                font-size: 0.75rem;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .narrative-box {
+                padding: 2rem;
+            }
+            
+            .project-card {
+                padding: 2rem;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            border-radius: 20px;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+            z-index: 1;
+        }
+        
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: scrollDown 2s infinite;
+        }
+        
+        @keyframes scrollDown {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 0.5; transform: translateX(-50%) translateY(12px); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#parcours">Parcours & Objectifs</a>
-        <a href="#portfolio">Projets Réflexifs (SAÉ)</a>
-        <a href="#bilan">Bilan & Évolution</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#portfolio">Projets</a>
+        <a href="#bilan">Bilan</a>
     </nav>
 
     <header>
+        <div class="header-decoration decoration-1"></div>
+        <div class="header-decoration decoration-2"></div>
         <h1>Martin Bretonnière</h1>
         <p>Étudiant R&T | Futur Ingénieur Cybersécurité</p>
         <div class="subtitle">
             Portfolio réflexif de 1ère année : De la découverte des réseaux à la maîtrise des outils d'analyse.
         </div>
+        <div class="scroll-indicator"></div>
     </header>
 
     <section id="parcours">
@@ -199,10 +715,10 @@
                 Passionné par le fonctionnement des systèmes d'information, j'ai orienté mon cursus vers le <strong>BUT Réseaux & Télécommunications</strong> avec une vision claire : acquérir les compétences techniques nécessaires pour sécuriser les infrastructures de demain.
             </p>
             <p>
-                [cite_start]Mon déclic pour la rigueur et la sécurité s'est confirmé lors de mon stage d'observation à la <strong>centrale nucléaire de Flamanville</strong>[cite: 18]. J'y ai découvert qu'une procédure ne souffre d'aucune approximation, un principe que j'applique désormais dans mes configurations réseaux et mes analyses de code.
+                Mon déclic pour la rigueur et la sécurité s'est confirmé lors de mon stage d'observation à la <strong class="highlight">centrale nucléaire de Flamanville</strong>. J'y ai découvert qu'une procédure ne souffre d'aucune approximation, un principe que j'applique désormais dans mes configurations réseaux et mes analyses de code.
             </p>
             <p>
-                [cite_start]Mon objectif est de devenir <strong>Ingénieur en Cybersécurité</strong> [cite: 25][cite_start], idéalement en Normandie[cite: 27]. Je ne cherche pas seulement à apprendre des commandes, mais à comprendre les vulnérabilités pour mieux protéger les systèmes, une compétence que je construis pas à pas, de l'hygiène informatique (SAE 11) à l'administration réseau complexe (SAE 21).
+                Mon objectif est de devenir <strong class="highlight">Ingénieur en Cybersécurité</strong>, idéalement en Normandie. Je ne cherche pas seulement à apprendre des commandes, mais à comprendre les vulnérabilités pour mieux protéger les systèmes, une compétence que je construis pas à pas, de l'hygiène informatique (SAE 11) à l'administration réseau complexe (SAE 21).
             </p>
         </div>
     </section>
@@ -217,24 +733,24 @@
                 <p>Acquisition des réflexes fondamentaux de sécurité et obtention de la certification SecNumAcadémie.</p>
                 
                 <details>
-                    <summary>Analyse Réflexive & Compétences</summary>
+                    <summary>Analyse Réflexive</summary>
                     <div class="reflection-content">
                         
                         <div class="ac-block">
                             <h5>Apprentissages Critiques (AC)</h5>
                             <ul class="ac-list">
-                                [cite_start]<li><strong>AC11.01</strong> Se sensibiliser à l'hygiène informatique[cite: 57].</li>
-                                [cite_start]<li><strong>AC11.02</strong> Comprendre l'architecture et les principes de l'information[cite: 52].</li>
+                                <li><strong>AC11.01</strong> Se sensibiliser à l'hygiène informatique.</li>
+                                <li><strong>AC11.02</strong> Comprendre l'architecture et les principes de l'information.</li>
                             </ul>
                         </div>
 
                         <h4>Démarche & Contribution</h4>
-                        <p>J'ai piloté ma propre progression sur les modules de l'ANSSI en parallèle du travail de groupe. [cite_start]Pour la présentation orale, nous avons réparti les tâches, mais j'ai veillé à comprendre les parties de mes camarades pour garder une vision globale[cite: 124].</p>
+                        <p>J'ai piloté ma propre progression sur les modules de l'ANSSI en parallèle du travail de groupe. Pour la présentation orale, nous avons réparti les tâches, mais j'ai veillé à comprendre les parties de mes camarades pour garder une vision globale.</p>
                         
                         <h4>Difficultés & Apprentissages</h4>
-                        <p>Le principal défi a été de transformer des connaissances théoriques en réflexes pratiques. [cite_start]Bien que mon score au QCM final ait été légèrement en dessous de mes attentes[cite: 129], cette SAÉ m'a appris que la sécurité est avant tout une question de comportement quotidien.</p>
+                        <p>Le principal défi a été de transformer des connaissances théoriques en réflexes pratiques. Bien que mon score au QCM final ait été légèrement en dessous de mes attentes, cette SAÉ m'a appris que la sécurité est avant tout une question de comportement quotidien.</p>
                         
-                        <a href="#" class="evidence-btn" onclick="alert('Lien vers votre attestation PDF à insérer ici')">📄 Voir mon attestation SecNum (PDF)</a>
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers votre attestation PDF à insérer ici'); return false;"><span class="evidence-icon">📄</span> Voir mon attestation SecNum</a>
                     </div>
                 </details>
             </div>
@@ -245,24 +761,24 @@
                 <p>Conception et mise en place d'un réseau local d'entreprise sécurisé.</p>
 
                 <details>
-                    <summary>Analyse Réflexive & Compétences</summary>
+                    <summary>Analyse Réflexive</summary>
                     <div class="reflection-content">
 
                          <div class="ac-block">
                             <h5>Apprentissages Critiques (AC)</h5>
                             <ul class="ac-list">
-                                [cite_start]<li><strong>AC11.03</strong> Configurer les fonctions de base du réseau local[cite: 148].</li>
-                                [cite_start]<li><strong>AC11.06</strong> Installer un poste client et sécuriser l'accès[cite: 153].</li>
+                                <li><strong>AC11.03</strong> Configurer les fonctions de base du réseau local.</li>
+                                <li><strong>AC11.06</strong> Installer un poste client et sécuriser l'accès.</li>
                             </ul>
                         </div>
 
                         <h4>Démarche & Contribution</h4>
-                        <p>J'ai participé activement à la configuration des équipements et à la rédaction des livrables techniques. [cite_start]Nous avons visé un rendu très complet pour compenser nos lacunes initiales[cite: 216].</p>
+                        <p>J'ai participé activement à la configuration des équipements et à la rédaction des livrables techniques. Nous avons visé un rendu très complet pour compenser nos lacunes initiales.</p>
                         
                         <h4>Difficultés & Apprentissages</h4>
-                        [cite_start]<p>Nous avons subi un vol de matériel qui a pénalisé notre oral[cite: 218]. J'ai appris à gérer l'imprévu et le stress. De plus, j'ai réalisé que la documentation technique est aussi importante que la configuration elle-même.</p>
+                        <p>Nous avons subi un vol de matériel qui a pénalisé notre oral. J'ai appris à gérer l'imprévu et le stress. De plus, j'ai réalisé que la documentation technique est aussi importante que la configuration elle-même.</p>
                         
-                        <a href="#" class="evidence-btn" onclick="alert('Lien vers un schéma réseau ou un rapport')">🖼️ Voir le schéma de l'architecture</a>
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers un schéma réseau ou un rapport'); return false;"><span class="evidence-icon">🖼️</span> Voir le schéma de l'architecture</a>
                     </div>
                 </details>
             </div>
@@ -273,14 +789,14 @@
                 <p>Diagnostic de câblage cuivre et fibre optique par réflectométrie.</p>
 
                 <details>
-                    <summary>Analyse Réflexive & Compétences</summary>
+                    <summary>Analyse Réflexive</summary>
                     <div class="reflection-content">
 
                         <div class="ac-block">
                             <h5>Apprentissages Critiques (AC)</h5>
                             <ul class="ac-list">
-                                [cite_start]<li><strong>AC12.01</strong> Mesurer et analyser les signaux[cite: 241].</li>
-                                [cite_start]<li><strong>AC12.03</strong> Déployer des supports de transmission[cite: 242].</li>
+                                <li><strong>AC12.01</strong> Mesurer et analyser les signaux.</li>
+                                <li><strong>AC12.03</strong> Déployer des supports de transmission.</li>
                             </ul>
                         </div>
 
@@ -288,9 +804,9 @@
                         <p>Je me suis concentré sur l'analyse des courbes de réflectométrie pour identifier les défauts. J'ai passé beaucoup de temps à comprendre la corrélation entre le signal physique et la réalité du câble.</p>
                         
                         <h4>Difficultés & Apprentissages</h4>
-                        [cite_start]<p>Par manque de temps, nous avons fait des approximations sur les mesures de base[cite: 276], ce qui a rendu l'interprétation finale floue. J'ai retenu une leçon cruciale : la qualité des résultats finaux dépend de la précision des données initiales.</p>
+                        <p>Par manque de temps, nous avons fait des approximations sur les mesures de base, ce qui a rendu l'interprétation finale floue. J'ai retenu une leçon cruciale : la qualité des résultats finaux dépend de la précision des données initiales.</p>
                         
-                        <a href="#" class="evidence-btn">📊 Extrait du rapport de mesures</a>
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers le rapport de mesures'); return false;"><span class="evidence-icon">📊</span> Extrait du rapport de mesures</a>
                     </div>
                 </details>
             </div>
@@ -301,24 +817,24 @@
                 <p>Création de mon identité numérique et déploiement via GitHub.</p>
 
                 <details>
-                    <summary>Analyse Réflexive & Compétences</summary>
+                    <summary>Analyse Réflexive</summary>
                     <div class="reflection-content">
 
                          <div class="ac-block">
                             <h5>Apprentissages Critiques (AC)</h5>
                             <ul class="ac-list">
-                                [cite_start]<li><strong>AC13.04</strong> Connaître l'architecture et les technologies Web[cite: 299].</li>
-                                [cite_start]<li><strong>AC13.01</strong> Utiliser un système informatique et ses outils[cite: 298].</li>
+                                <li><strong>AC13.04</strong> Connaître l'architecture et les technologies Web.</li>
+                                <li><strong>AC13.01</strong> Utiliser un système informatique et ses outils.</li>
                             </ul>
                         </div>
 
                         <h4>Démarche & Contribution</h4>
-                        <p>J'ai choisi de coder ce site "from scratch" sans templates pour maîtriser le code source. [cite_start]Je me suis isolé pour me concentrer sur la structure et le respect des normes W3C[cite: 353].</p>
+                        <p>J'ai choisi de coder ce site "from scratch" sans templates pour maîtriser le code source. Je me suis isolé pour me concentrer sur la structure et le respect des normes W3C.</p>
                         
                         <h4>Difficultés & Apprentissages</h4>
-                        <p>C'était une première. [cite_start]Mon erreur a été de ne pas assez solliciter mes camarades[cite: 354]. [cite_start]J'ai appris l'importance de la structure des fichiers pour la maintenabilité et j'ai découvert la puissance du versionning avec GitHub[cite: 355].</p>
+                        <p>C'était une première. Mon erreur a été de ne pas assez solliciter mes camarades. J'ai appris l'importance de la structure des fichiers pour la maintenabilité et j'ai découvert la puissance du versionning avec GitHub.</p>
                         
-                        <a href="#" class="evidence-btn">💻 Voir le dépôt GitHub</a>
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers GitHub'); return false;"><span class="evidence-icon">💻</span> Voir le dépôt GitHub</a>
                     </div>
                 </details>
             </div>
@@ -329,23 +845,23 @@
                 <p>Traitement statistique de données via une API (PokeAPI).</p>
 
                 <details>
-                    <summary>Analyse Réflexive & Compétences</summary>
+                    <summary>Analyse Réflexive</summary>
                     <div class="reflection-content">
 
                         <div class="ac-block">
                             <h5>Apprentissages Critiques (AC)</h5>
                             <ul class="ac-list">
-                                [cite_start]<li><strong>AC13.02</strong> Lire, exécuter, corriger et modifier un programme[cite: 378].</li>
-                                [cite_start]<li><strong>AC13.05</strong> Choisir les mécanismes de gestion de données adaptés[cite: 388].</li>
+                                <li><strong>AC13.02</strong> Lire, exécuter, corriger et modifier un programme.</li>
+                                <li><strong>AC13.05</strong> Choisir les mécanismes de gestion de données adaptés.</li>
                             </ul>
                         </div>
 
                         <h4>Démarche & Contribution</h4>
-                        [cite_start]<p>J'ai adopté une méthodologie en couches : structure HTML d'abord, style CSS, puis logique JS[cite: 437]. J'ai travaillé en binôme pour maximiser l'apprentissage par les pairs.</p>
+                        <p>J'ai adopté une méthodologie en couches : structure HTML d'abord, style CSS, puis logique JS. J'ai travaillé en binôme pour maximiser l'apprentissage par les pairs.</p>
                         
                         <h4>Difficultés & Apprentissages</h4>
-                        [cite_start]<p>La manipulation du DOM et la gestion des événements asynchrones ont été complexes[cite: 439]. J'ai surmonté cela en apprenant à lire la documentation technique de manière autonome.</p>
-                        <a href="#" class="evidence-btn">⚙️ Voir le script JS</a>
+                        <p>La manipulation du DOM et la gestion des événements asynchrones ont été complexes. J'ai surmonté cela en apprenant à lire la documentation technique de manière autonome.</p>
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers le code JS'); return false;"><span class="evidence-icon">⚙️</span> Voir le script JS</a>
                     </div>
                 </details>
             </div>
@@ -356,24 +872,24 @@
                 <p>Déploiement complet d'une infrastructure pour petite structure.</p>
 
                 <details>
-                    <summary>Analyse Réflexive & Compétences</summary>
+                    <summary>Analyse Réflexive</summary>
                     <div class="reflection-content">
 
                         <div class="ac-block">
                             <h5>Apprentissages Critiques (AC)</h5>
                             <ul class="ac-list">
-                                [cite_start]<li><strong>AC11.04</strong> Maîtriser l'administration des réseaux et services[cite: 460].</li>
-                                [cite_start]<li><strong>AC11.05</strong> Identifier les dysfonctionnements et les signaler[cite: 462].</li>
+                                <li><strong>AC11.04</strong> Maîtriser l'administration des réseaux et services.</li>
+                                <li><strong>AC11.05</strong> Identifier les dysfonctionnements et les signaler.</li>
                             </ul>
                         </div>
 
                         <h4>Démarche & Contribution</h4>
-                        <p>Je me suis chargé de la cohérence de l'adressage IP et de la segmentation. [cite_start]J'ai également produit la documentation d'exploitation[cite: 505].</p>
+                        <p>Je me suis chargé de la cohérence de l'adressage IP et de la segmentation. J'ai également produit la documentation d'exploitation.</p>
                         
                         <h4>Difficultés & Apprentissages</h4>
-                        [cite_start]<p>J'ai rencontré des difficultés sur le diagnostic de pannes (boucles réseau, conflits IP)[cite: 507]. J'ai réalisé que j'avais négligé certaines parties gérées par mes collègues. <strong>Leçon apprise :</strong> il faut maîtriser l'interface avec le travail des autres.</p>
+                        <p>J'ai rencontré des difficultés sur le diagnostic de pannes (boucles réseau, conflits IP). J'ai réalisé que j'avais négligé certaines parties gérées par mes collègues. <strong>Leçon apprise :</strong> il faut maîtriser l'interface avec le travail des autres.</p>
                         
-                        <a href="#" class="evidence-btn">📑 Consulter la documentation technique</a>
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers la documentation'); return false;"><span class="evidence-icon">📑</span> Consulter la documentation technique</a>
                     </div>
                 </details>
             </div>
@@ -384,24 +900,24 @@
                 <p>Caractérisation de signaux radio et modélisation.</p>
 
                 <details>
-                    <summary>Analyse Réflexive & Compétences</summary>
+                    <summary>Analyse Réflexive</summary>
                     <div class="reflection-content">
 
                          <div class="ac-block">
                             <h5>Apprentissages Critiques (AC)</h5>
                             <ul class="ac-list">
-                                [cite_start]<li><strong>AC12.01</strong> Mesurer et analyser les signaux[cite: 523].</li>
-                                [cite_start]<li><strong>AC12.02</strong> Caractériser des systèmes de transmission[cite: 524].</li>
+                                <li><strong>AC12.01</strong> Mesurer et analyser les signaux.</li>
+                                <li><strong>AC12.02</strong> Caractériser des systèmes de transmission.</li>
                             </ul>
                         </div>
 
                         <h4>Démarche & Contribution</h4>
-                        [cite_start]<p>Utilisation d'une clé RTL-SDR pour capter et visualiser des signaux réels[cite: 551]. J'ai fait le lien entre les formules mathématiques vues en cours et les courbes affichées à l'écran.</p>
+                        <p>Utilisation d'une clé RTL-SDR pour capter et visualiser des signaux réels. J'ai fait le lien entre les formules mathématiques vues en cours et les courbes affichées à l'écran.</p>
                         
                         <h4>Difficultés & Apprentissages</h4>
-                        [cite_start]<p>Certains phénomènes parasites (bruit de phase, lobes secondaires) étaient difficiles à interpréter sans bases théoriques solides[cite: 553]. Ce projet m'a montré la nécessité de renforcer mes bases en mathématiques.</p>
+                        <p>Certains phénomènes parasites (bruit de phase, lobes secondaires) étaient difficiles à interpréter sans bases théoriques solides. Ce projet m'a montré la nécessité de renforcer mes bases en mathématiques.</p>
                         
-                        <a href="#" class="evidence-btn">📈 Voir une analyse de spectre</a>
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers l\'analyse'); return false;"><span class="evidence-icon">📈</span> Voir une analyse de spectre</a>
                     </div>
                 </details>
             </div>
@@ -413,7 +929,7 @@
         <h2>Bilan Global & Perspectives</h2>
         <div class="narrative-box">
             <p>
-                Cette première année a marqué une transition majeure. Je suis passé d'une vision "consommateur" de l'informatique à une posture de <strong>technicien capable de construire et diagnostiquer</strong>. J'ai appris que la compétence technique pure ne suffit pas : la documentation, la communication en équipe et la rigueur méthodologique sont tout aussi cruciales.
+                Cette première année a marqué une transition majeure. Je suis passé d'une vision "consommateur" de l'informatique à une posture de <strong class="highlight">technicien capable de construire et diagnostiquer</strong>. J'ai appris que la compétence technique pure ne suffit pas : la documentation, la communication en équipe et la rigueur méthodologique sont tout aussi cruciales.
             </p>
             <p>
                 <strong>Plan d'évolution :</strong>
@@ -427,12 +943,12 @@
     </section>
 
     <footer id="contact">
-        <p>&copy; [cite_start]2025 Martin Bretonnière - Caen (14000) [cite: 15]</p>
+        <p>&copy; 2025 Martin Bretonnière - Caen (14000)</p>
         <p>Étudiant IUT Grand Ouest Normandie | Portfolio Universitaire</p>
     </footer>
 
     <script>
-        // Petit script pour gérer l'ouverture fluide des details (optionnel mais sympa)
+        // Gestion fluide des details avec fermeture automatique
         const details = document.querySelectorAll("details");
         details.forEach((targetDetail) => {
             targetDetail.addEventListener("click", () => {
@@ -442,6 +958,29 @@
                     }
                 });
             });
+        });
+
+        // Animation au scroll pour les éléments
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les sections pour animation au scroll
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
         });
     </script>
 </body>
