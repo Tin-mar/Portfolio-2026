@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Martin Bretonnière</title>
+    <style>
+        :root {
+            --primary: #2c3e50; /* Bleu foncé pour le sérieux/tech */
+            --secondary: #e67e22; /* Orange pour rappeler ton PDF */
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Navigation simple */
+        nav {
+            background: var(--dark);
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Grille des Projets (SAE) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary);
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .tag {
+            background: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">À propos</a>
+        <a href="#objectives">Objectifs</a>
+        <a href="#portfolio">Projets (SAÉ)</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <header>
+        <h1>Martin Bretonnière</h1>
+        <p>Étudiant R&T | Futur Ingénieur Cybersécurité</p>
+    </header>
+
+    <section id="about">
+        <h2>Présentation</h2>
+        <p>
+            Actuellement en <strong>1ère année de BUT Réseaux & Télécommunications</strong> à Caen. 
+            Né le 24/10/2006, je suis passionné par l'informatique et les réseaux.
+        </p>
+        <p>
+            J'ai acquis une rigueur de travail notamment grâce à mes expériences académiques et mon stage d'observation à la <strong>centrale nucléaire de Flamanville</strong>[cite: 18].
+        </p>
+    </section>
+
+    <section id="objectives">
+        <h2>Objectifs Professionnels</h2>
+        <ul>
+            <li><strong>Ambition :</strong> Devenir Ingénieur en Cybersécurité[cite: 25].</li>
+            <li><strong>Localisation souhaitée :</strong> Normandie[cite: 27].</li>
+            <li><strong>Diplôme visé :</strong> Diplôme d'ingénieur en cybersécurité[cite: 26].</li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+        <h2>Mes Projets Académiques (SAÉ)</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <h3>SAE 11 : Cybersécurité & Hygiène Info</h3>
+                <span class="tag">MOOC ANSSI</span> <span class="tag">SecNumAcadémie</span>
+                <p>Sensibilisation à l'hygiène informatique. Obtention de l'attestation SecNumAcadémie avec succès (scores > 88%)[cite: 102].</p>
+            </div>
+
+            <div class="project-card">
+                <h3>SAE 12 : Architecture Réseau</h3>
+                <span class="tag">Cisco</span> <span class="tag">Réseau Local</span>
+                <p>Initiation aux réseaux informatiques. Création et sécurisation d'un réseau de petite taille. Validation des modules Cisco Netacad[cite: 187, 191].</p>
+            </div>
+
+            <div class="project-card">
+                <h3>SAE 13 : Réflectométrie & Câblage</h3>
+                <span class="tag">Physique</span> <span class="tag">Fibre & Cuivre</span>
+                <p>Analyse de câbles RJ-45 et Fibre Optique. Utilisation de la réflectométrie (Distance To Fault)[cite: 231]. Note projet : 17.5/20[cite: 268].</p>
+            </div>
+
+            <div class="project-card">
+                <h3>SAE 14 : Création Web</h3>
+                <span class="tag">HTML5</span> <span class="tag">CSS3</span> <span class="tag">Github</span>
+                <p>Création d'un site web personnel (CV/Portfolio). Apprentissage du versionning avec Github et respect des normes W3C[cite: 337].</p>
+            </div>
+
+            <div class="project-card">
+                <h3>SAE 15 : Traitement de Données</h3>
+                <span class="tag">JavaScript</span> <span class="tag">API PokeAPI</span> <span class="tag">Python</span>
+                <p>Création d'un site dynamique exploitant une API (PokeAPI) et traitement statistique des données[cite: 422].</p>
+            </div>
+
+            <div class="project-card">
+                <h3>SAE 21 : Réseau Petite Structure</h3>
+                <span class="tag">Administration</span> <span class="tag">Déploiement</span>
+                <p>Construction d'un réseau informatique complet pour une petite structure. Gestion de l'adressage et documentation technique[cite: 503].</p>
+            </div>
+
+             <div class="project-card">
+                <h3>SAE 22 : Mesure de Signal</h3>
+                <span class="tag">RTL-SDR</span> <span class="tag">Télécoms</span>
+                <p>Mesure et caractérisation de signaux via analyseur de spectre et antenne RTL-SDR[cite: 551].</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2025 Martin Bretonnière - Caen (14000) [cite: 15]</p>
+        <p>Étudiant IUT Grand Ouest Normandie</p>
+    </footer>
+
+</body>
+</html>
