@@ -3,149 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Martin Bretonnière</title>
+    <title>Portfolio Réflexif | Martin Bretonnière</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Palette de couleurs plus moderne (Slate & Orange Vif) */
-            --primary: #0f172a;      /* Bleu nuit très foncé */
-            --primary-light: #334155; /* Gris ardoise */
-            --accent: #f97316;       /* Orange dynamique */
-            --bg-color: #f8fafc;     /* Fond très clair légèrement bleuté */
-            --card-bg: #ffffff;      /* Blanc pur pour les cartes */
-            --text-main: #1e293b;    /* Texte principal */
-            --text-muted: #64748b;   /* Texte secondaire */
+            --primary: #0f172a;      
+            --primary-light: #334155; 
+            --accent: #f97316;       
+            --bg-color: #f8fafc;     
+            --card-bg: #ffffff;      
+            --text-main: #1e293b;    
+            --text-muted: #475569;   
             --font-main: 'Inter', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth; /* Défilement fluide lors du clic sur le menu */
-        }
-
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-main);
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* Navigation style "Glassmorphism" */
+        /* Navigation */
         nav {
-            background: rgba(15, 23, 42, 0.95); /* Semi-transparent */
-            backdrop-filter: blur(10px); /* Flou d'arrière-plan */
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
-
         nav a {
             color: #cbd5e1;
             text-decoration: none;
-            margin: 0 1.5rem;
+            margin: 0 1.2rem;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            transition: color 0.3s;
         }
+        nav a:hover { color: var(--accent); }
 
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Header / Hero Section avec dégradé et forme géométrique */
+        /* Header / Hero */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
             color: white;
-            padding: 6rem 2rem 8rem 2rem; /* Plus d'espace en bas pour la découpe */
+            padding: 6rem 2rem 8rem 2rem;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* Découpe en biais moderne */
-            margin-bottom: 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
+        header h1 { font-size: 3rem; margin: 0 0 0.5rem 0; font-weight: 800; }
+        header p { font-size: 1.2rem; color: var(--accent); font-weight: 600; margin: 0; }
+        header .subtitle { font-size: 1rem; color: #94a3b8; font-weight: 400; margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        header h1 {
-            margin: 0;
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.25rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-top: 0;
-            opacity: 0.9;
-        }
-
-        /* Sections générales */
-        section {
-            padding: 2rem;
-            max-width: 1100px;
-            margin: 0 auto 4rem auto;
-        }
-
-        h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Petit trait orange sous les titres */
-        h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            margin-top: 0.5rem;
-            border-radius: 2px;
-        }
-
-        /* Style des blocs de texte (À propos, Objectifs) */
-        #about p, #objectives ul {
+        /* Sections */
+        section { padding: 2rem; max-width: 1000px; margin: 0 auto 3rem auto; }
+        h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 2rem; border-left: 5px solid var(--accent); padding-left: 1rem; }
+        
+        /* Narrative Text Blocks */
+        .narrative-box {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            font-size: 1.05rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
         }
+        .narrative-box p { margin-bottom: 1rem; text-align: justify; }
+        .highlight { color: var(--accent); font-weight: 600; }
 
-        /* Listes stylisées */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        li::before {
-            content: "→";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Grille des Projets (SAE) */
+        /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Cartes un peu plus larges */
+            grid-template-columns: 1fr; /* Default single column for mobile */
             gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         .project-card {
@@ -153,250 +92,260 @@
             padding: 2rem;
             border-radius: 16px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
-
-        /* Effet "Levitation" au survol */
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0,0,0,0.1);
             border-color: var(--accent);
         }
-
-        .project-card h3 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Tags (Pills) */
-        .tag {
-            display: inline-block;
-            background: #e0f2fe; /* Bleu très clair */
-            color: #0284c7;      /* Bleu tech */
-            padding: 0.35rem 0.8rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-right: 0.5rem;
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Bouton "Détails" interactif */
-        details {
-            margin-top: auto; /* Pousse le bouton vers le bas de la carte */
-            border-top: 1px solid #f1f5f9;
-            padding-top: 1rem;
-        }
-
-        summary {
-            cursor: pointer;
-            color: var(--accent);
-            font-weight: 600;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: opacity 0.2s;
-        }
-
-        summary:hover {
-            opacity: 0.8;
-        }
-
-        summary::-webkit-details-marker {
-            display: none; /* Cache le triangle par défaut */
-        }
-
-        summary::after {
-            content: '+'; /* Icône personnalisée */
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        details[open] summary::after {
-            content: '-';
-        }
-
-        details p {
-            font-size: 0.95rem;
-            color: var(--text-main);
+        .project-card h3 { color: var(--primary); margin-top: 0; }
+        .tag { background: #eff6ff; color: #1d4ed8; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-right: 0.5rem; display: inline-block; margin-bottom: 1rem; }
+        
+        /* Details & Reflexion styling */
+        details { margin-top: auto; border-top: 1px solid #f1f5f9; padding-top: 1rem; }
+        summary { cursor: pointer; color: var(--accent); font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.5rem; }
+        details[open] summary::after { content: '-'; }
+        
+        .reflection-content {
             background: #f8fafc;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
             animation: fadeIn 0.4s ease;
         }
-
-        /* Animation d'apparition */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
+        .reflection-content h4 { color: var(--primary-light); margin: 1rem 0 0.5rem 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .reflection-content h4:first-child { margin-top: 0; }
+        
+        /* Evidence / Proof Buttons */
+        .evidence-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border: 1px dashed var(--text-muted);
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
         }
+        .evidence-btn:hover { background: #e2e8f0; color: var(--primary); border-style: solid; }
+        .evidence-icon { margin-right: 5px; }
 
-        footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: var(--primary);
-            color: #94a3b8;
-            margin-top: 4rem;
-            font-size: 0.9rem;
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        footer { text-align: center; padding: 4rem 2rem; background: var(--primary); color: #94a3b8; margin-top: 4rem; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#about">À propos</a>
-        <a href="#objectives">Objectifs</a>
-        <a href="#portfolio">Projets (SAÉ)</a>
-        <a href="#contact">Contact</a>
+        <a href="#parcours">Parcours & Objectifs</a>
+        <a href="#portfolio">Projets Réflexifs (SAÉ)</a>
+        <a href="#bilan">Bilan & Évolution</a>
     </nav>
 
     <header>
         <h1>Martin Bretonnière</h1>
         <p>Étudiant R&T | Futur Ingénieur Cybersécurité</p>
+        <div class="subtitle">
+            Portfolio réflexif de 1ère année : De la découverte des réseaux à la maîtrise des outils d'analyse.
+        </div>
     </header>
 
-    <section id="about">
-        <h2>Présentation</h2>
-        <p>
-            Actuellement en <strong>1ère année de BUT Réseaux & Télécommunications</strong> à Caen. 
-            Né le 24/10/2006, je suis passionné par l'informatique et les réseaux.
-        </p>
-        <p>
-            [cite_start]J'ai acquis une rigueur de travail notamment grâce à mes expériences académiques et mon stage d'observation à la <strong>centrale nucléaire de Flamanville</strong>[cite: 18].
-        </p>
-    </section>
-
-    <section id="objectives">
-        <h2>Objectifs Professionnels</h2>
-        <ul>
-            [cite_start]<li><strong>Ambition :</strong> Devenir Ingénieur en Cybersécurité[cite: 25].</li>
-            [cite_start]<li><strong>Localisation souhaitée :</strong> Normandie[cite: 27].</li>
-            [cite_start]<li><strong>Diplôme visé :</strong> Diplôme d'ingénieur en cybersécurité[cite: 26].</li>
-        </ul>
+    <section id="parcours">
+        <h2>Mon Parcours et Mes Ambitions</h2>
+        <div class="narrative-box">
+            <p>
+                Passionné par le fonctionnement des systèmes d'information, j'ai orienté mon cursus vers le <strong>BUT Réseaux & Télécommunications</strong> avec une vision claire : acquérir les compétences techniques nécessaires pour sécuriser les infrastructures de demain.
+            </p>
+            <p>
+                Mon déclic pour la rigueur et la sécurité s'est confirmé lors de mon stage d'observation à la <strong>centrale nucléaire de Flamanville</strong>. J'y ai découvert qu'une procédure ne souffre d'aucune approximation, un principe que j'applique désormais dans mes configurations réseaux et mes analyses de code.
+            </p>
+            <p>
+                Mon objectif est de devenir <strong>Ingénieur en Cybersécurité</strong>, idéalement en Normandie. Je ne cherche pas seulement à apprendre des commandes, mais à comprendre les vulnérabilités pour mieux protéger les systèmes, une compétence que je construis pas à pas, de l'hygiène informatique (SAE 11) à l'administration réseau complexe (SAE 21).
+            </p>
+        </div>
     </section>
 
     <section id="portfolio">
-        <h2>Mes Projets Académiques (SAÉ)</h2>
+        <h2>Analyse de mes Projets (SAÉ)</h2>
         <div class="projects-grid">
             
             <div class="project-card">
                 <h3>SAE 11 : Hygiène Info & Cybersécu</h3>
-                <div>
-                    <span class="tag">ANSSI</span> <span class="tag">SecNumAcadémie</span>
-                </div>
-                <p>Sensibilisation à l'hygiène informatique et à la cybersécurité.</p>
+                <div><span class="tag">MOOC ANSSI</span> <span class="tag">Rigueur</span></div>
+                <p>Acquisition des réflexes fondamentaux de sécurité et obtention de la certification SecNumAcadémie.</p>
                 
                 <details>
-                    <summary>Voir les détails</summary>
-                    <p><strong>Le Projet :</strong> Introduction aux notions de cybersécurité via le MOOC de l'ANSSI. [cite_start]Ce module certifie l'acquisition de compétences pour réduire les risques d'attaques sur les matériels du quotidien[cite: 45, 46].</p>
-                    [cite_start]<p><strong>Mon Bilan :</strong> J'ai obtenu l'attestation de suivi SecNumAcadémie avec des scores élevés (90% sur la sécurité de l'authentification)[cite: 102, 116]. [cite_start]Bien que la note du QCM final ait été légèrement en dessous de mes attentes, la répartition des tâches dans le groupe a été efficace[cite: 124, 129].</p>
+                    <summary>Analyse Réflexive</summary>
+                    <div class="reflection-content">
+                        <h4>Démarche & Contribution</h4>
+                        <p>J'ai piloté ma propre progression sur les modules de l'ANSSI en parallèle du travail de groupe. Pour la présentation orale, nous avons réparti les tâches, mais j'ai veillé à comprendre les parties de mes camarades pour garder une vision globale.</p>
+                        
+                        <h4>Difficultés & Apprentissages</h4>
+                        <p>Le principal défi a été de transformer des connaissances théoriques en réflexes pratiques. Bien que mon score au QCM final ait été légèrement en dessous de mes attentes, cette SAÉ m'a appris que la sécurité est avant tout une question de comportement quotidien, pas seulement de technique.</p>
+                        
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers votre attestation PDF à insérer ici')">📄 Voir mon attestation SecNum (PDF)</a>
+                    </div>
                 </details>
             </div>
 
             <div class="project-card">
-                <h3>SAE 12 : Initiation Réseaux</h3>
-                <div>
-                    <span class="tag">Cisco</span> <span class="tag">Architecture</span>
-                </div>
-                <p>Construction d'un réseau informatique à petite échelle.</p>
+                <h3>SAE 12 : Architecture Réseau</h3>
+                <div><span class="tag">Cisco Packet Tracer</span> <span class="tag">Travail d'équipe</span></div>
+                <p>Conception et mise en place d'un réseau local d'entreprise sécurisé.</p>
 
                 <details>
-                    <summary>Voir les détails</summary>
-                    <p><strong>Le Projet :</strong> Mise en pratique des notions réseaux pour construire une architecture réaliste d'entreprise. [cite_start]Ce projet couvre la première moitié du diplôme "Réseaux"[cite: 137, 140].</p>
-                    [cite_start]<p><strong>Mon Bilan :</strong> Cette SAÉ m'a permis d'approfondir mes connaissances et de gagner en maturité de travail de groupe[cite: 224]. [cite_start]Les livrables produits ont été très complets et récompensés, malgré les imprévus matériels rencontrés[cite: 216, 218].</p>
+                    <summary>Analyse Réflexive</summary>
+                    <div class="reflection-content">
+                        <h4>Démarche & Contribution</h4>
+                        <p>J'ai participé activement à la configuration des équipements et à la rédaction des livrables techniques. Nous avons visé un rendu très complet pour compenser nos lacunes initiales.</p>
+                        
+                        <h4>Difficultés & Apprentissages</h4>
+                        <p>Nous avons subi un vol de matériel qui a pénalisé notre oral. J'ai appris à gérer l'imprévu et le stress. De plus, j'ai réalisé que la documentation technique (que nous avions soignée) est aussi importante que la configuration elle-même pour assurer la continuité du projet.</p>
+                        
+                        <a href="#" class="evidence-btn" onclick="alert('Lien vers un schéma réseau ou un rapport')">🖼️ Voir le schéma de l'architecture</a>
+                    </div>
                 </details>
             </div>
 
             <div class="project-card">
-                <h3>SAE 13 : Réflectométrie & Câblage</h3>
-                <div>
-                    <span class="tag">Physique</span> <span class="tag">Mesures</span>
-                </div>
-                <p>Analyse de supports de transmission (Cuivre et Fibre Optique).</p>
+                <h3>SAE 13 : Réflectométrie (DTF)</h3>
+                <div><span class="tag">Mesures Physiques</span> <span class="tag">Précision</span></div>
+                <p>Diagnostic de câblage cuivre et fibre optique par réflectométrie.</p>
 
                 <details>
-                    <summary>Voir les détails</summary>
-                    [cite_start]<p><strong>Le Projet :</strong> Introduction aux techniques de diagnostic de signaux (réflectométrie) et analyse des câbles RJ-45 et fibre optique[cite: 232, 233].</p>
-                    [cite_start]<p><strong>Mon Bilan :</strong> J'ai obtenu d'excellents résultats (19/20 au QCM, 17.5/20 au rendu)[cite: 269, 270]. [cite_start]J'ai beaucoup apprécié ce projet, bien que nous ayons dû faire quelques approximations sur les mesures de base par manque de temps[cite: 265, 276].</p>
+                    <summary>Analyse Réflexive</summary>
+                    <div class="reflection-content">
+                        <h4>Démarche & Contribution</h4>
+                        <p>Je me suis concentré sur l'analyse des courbes de réflectométrie pour identifier les défauts. J'ai passé beaucoup de temps à comprendre la corrélation entre le signal physique et la réalité du câble.</p>
+                        
+                        <h4>Difficultés & Apprentissages</h4>
+                        <p>Par manque de temps, nous avons fait des approximations sur les mesures de base, ce qui a rendu l'interprétation finale floue. J'ai retenu une leçon cruciale pour l'ingénierie : <strong>la qualité des résultats finaux dépend entièrement de la précision des données initiales.</strong></p>
+                        
+                        <a href="#" class="evidence-btn">📊 Extrait du rapport de mesures</a>
+                    </div>
                 </details>
             </div>
 
             <div class="project-card">
-                <h3>SAE 14 : Identité Numérique</h3>
-                <div>
-                    <span class="tag">HTML/CSS</span> <span class="tag">W3C</span>
-                </div>
-                <p>Création et déploiement d'un site web personnel.</p>
+                <h3>SAE 14 : Développement Web</h3>
+                <div><span class="tag">HTML/CSS</span> <span class="tag">Autonomie</span></div>
+                <p>Création de mon identité numérique et déploiement via GitHub.</p>
 
                 <details>
-                    <summary>Voir les détails</summary>
-                    [cite_start]<p><strong>Le Projet :</strong> Découverte des langages Web (HTML, CSS) pour concevoir un site respectant les normes W3C et WCAG, hébergé via GitHub[cite: 293, 337].</p>
-                    <p><strong>Mon Bilan :</strong> C'était une première pour moi. [cite_start]J'ai réussi à créer un site fonctionnel et à structurer mon code pour qu'il soit maintenable[cite: 351, 355]. [cite_start]J'ai pris conscience de l'importance de la rigueur et de l'anticipation dans le développement web[cite: 363].</p>
+                    <summary>Analyse Réflexive</summary>
+                    <div class="reflection-content">
+                        <h4>Démarche & Contribution</h4>
+                        <p>J'ai choisi de coder ce site "from scratch" sans templates pour maîtriser le code source. Je me suis isolé ("bulle") pour me concentrer sur la structure et le respect des normes W3C.</p>
+                        
+                        <h4>Difficultés & Apprentissages</h4>
+                        <p>C'était une première. Mon erreur a été de ne pas assez solliciter mes camarades plus expérimentés, ce qui m'a fait perdre du temps. J'ai appris l'importance de la structure des fichiers pour la maintenabilité et j'ai découvert la puissance du versionning avec GitHub.</p>
+                        
+                        <a href="#" class="evidence-btn">💻 Voir le dépôt GitHub</a>
+                    </div>
                 </details>
             </div>
 
             <div class="project-card">
-                <h3>SAE 15 : Traitement de Données</h3>
-                <div>
-                    <span class="tag">JavaScript</span> <span class="tag">API PokeAPI</span>
-                </div>
-                <p>Développement d'un site web dynamique exploitant des données.</p>
+                <h3>SAE 15 : Données Dynamiques</h3>
+                <div><span class="tag">JavaScript</span> <span class="tag">Logique Algo</span></div>
+                <p>Traitement statistique de données via une API (PokeAPI).</p>
 
                 <details>
-                    <summary>Voir les détails</summary>
-                    [cite_start]<p><strong>Le Projet :</strong> Création d'un site dynamique utilisant le langage JavaScript pour récolter des données via une API (PokeAPI) et effectuer des traitements statistiques[cite: 368, 422].</p>
-                    [cite_start]<p><strong>Mon Bilan :</strong> J'ai suivi une approche méthodique (HTML > CSS > JS) qui m'a aidé à rester concentré[cite: 437]. [cite_start]Ce projet m'a fait réaliser que l'interactivité JS est essentielle pour donner vie à un site, au-delà du simple aspect visuel[cite: 446].</p>
+                    <summary>Analyse Réflexive</summary>
+                    <div class="reflection-content">
+                        <h4>Démarche & Contribution</h4>
+                        <p>J'ai adopté une méthodologie en couches : structure HTML d'abord, style CSS, puis logique JS. J'ai travaillé en binôme pour maximiser l'apprentissage par les pairs.</p>
+                        
+                        <h4>Difficultés & Apprentissages</h4>
+                        <p>La manipulation du DOM et la gestion des événements asynchrones ont été complexes. J'ai surmonté cela en apprenant à lire la documentation technique (MDN) de manière autonome. J'ai compris qu'un site n'est pas qu'une vitrine, mais un logiciel à part entière.</p>
+                    </div>
                 </details>
             </div>
 
             <div class="project-card">
-                <h3>SAE 21 : Réseau Petite Structure</h3>
-                <div>
-                    <span class="tag">Administration</span> <span class="tag">VLAN/IP</span>
-                </div>
-                <p>Conception et administration d'un réseau complet.</p>
+                <h3>SAE 21 : Admin Réseau Avancée</h3>
+                <div><span class="tag">VLANs</span> <span class="tag">Diagnostic</span></div>
+                <p>Déploiement complet d'une infrastructure pour petite structure.</p>
 
                 <details>
-                    <summary>Voir les détails</summary>
-                    [cite_start]<p><strong>Le Projet :</strong> Déploiement d'un réseau pour une petite structure, incluant la configuration des matériels et l'adressage IP[cite: 503].</p>
-                    [cite_start]<p><strong>Mon Bilan :</strong> J'ai réussi à proposer une architecture cohérente avec une séparation claire des sous-réseaux et j'ai produit une documentation technique complète[cite: 503, 505]. [cite_start]Je me sens désormais plus à l'aise sur l'installation réseau et la gestion des pannes[cite: 515].</p>
+                    <summary>Analyse Réflexive</summary>
+                    <div class="reflection-content">
+                        <h4>Démarche & Contribution</h4>
+                        <p>Je me suis chargé de la cohérence de l'adressage IP et de la segmentation (VLANs). J'ai également produit la documentation d'exploitation.</p>
+                        
+                        <h4>Difficultés & Apprentissages</h4>
+                        <p>J'ai rencontré des difficultés sur le diagnostic de pannes (boucles réseau, conflits IP). J'ai réalisé que j'avais négligé certaines parties gérées par mes collègues, ce qui m'a bloqué pour le dépannage global. <strong>Leçon apprise :</strong> dans une équipe, il faut maîtriser l'interface avec le travail des autres.</p>
+                        
+                        <a href="#" class="evidence-btn">📑 Consulter la documentation technique</a>
+                    </div>
                 </details>
             </div>
 
-             <div class="project-card">
-                <h3>SAE 22 : Analyse de Signaux</h3>
-                <div>
-                    <span class="tag">RTL-SDR</span> <span class="tag">Spectre</span>
-                </div>
-                <p>Mesure et caractérisation de signaux radio.</p>
+            <div class="project-card">
+                <h3>SAE 22 : Analyse Spectrale</h3>
+                <div><span class="tag">Traitement du Signal</span> <span class="tag">RTL-SDR</span></div>
+                <p>Caractérisation de signaux radio et modélisation.</p>
 
                 <details>
-                    <summary>Voir les détails</summary>
-                    [cite_start]<p><strong>Le Projet :</strong> Analyse de signaux d'un système de transmission à l'aide d'un analyseur de spectre et d'une antenne RTL-SDR[cite: 539, 551].</p>
-                    [cite_start]<p><strong>Mon Bilan :</strong> J'ai rapidement pris en main les outils de mesure pour obtenir un affichage clair du signal[cite: 551]. [cite_start]Ce projet m'a permis de concrétiser des notions théoriques, bien que certains phénomènes (bruit de phase, lobes secondaires) restent complexes à interpréter[cite: 553, 560].</p>
+                    <summary>Analyse Réflexive</summary>
+                    <div class="reflection-content">
+                        <h4>Démarche & Contribution</h4>
+                        <p>Utilisation d'une clé RTL-SDR pour capter et visualiser des signaux réels. J'ai fait le lien entre les formules mathématiques vues en cours et les courbes affichées à l'écran.</p>
+                        
+                        <h4>Difficultés & Apprentissages</h4>
+                        <p>Certains phénomènes parasites (bruit de phase, lobes secondaires) étaient difficiles à interpréter sans bases théoriques solides. Ce projet m'a montré la nécessité de renforcer mes bases en mathématiques pour comprendre la réalité physique des télécommunications.</p>
+                        
+                        <a href="#" class="evidence-btn">📈 Voir une analyse de spectre</a>
+                    </div>
                 </details>
             </div>
 
         </div>
     </section>
 
+    <section id="bilan">
+        <h2>Bilan Global & Perspectives</h2>
+        <div class="narrative-box">
+            <p>
+                Cette première année a marqué une transition majeure. Je suis passé d'une vision "consommateur" de l'informatique à une posture de <strong>technicien capable de construire et diagnostiquer</strong>. J'ai appris que la compétence technique pure ne suffit pas : la documentation, la communication en équipe et la rigueur méthodologique sont tout aussi cruciales.
+            </p>
+            <p>
+                <strong>Plan d'évolution :</strong>
+            </p>
+            <ul>
+                <li><strong>Court terme (S2-S3) :</strong> Approfondir mes lacunes en JavaScript pour l'automatisation et renforcer mes bases théoriques en traitement du signal.</li>
+                <li><strong>Moyen terme :</strong> Me focaliser sur les modules de sécurité offensive et défensive pour préparer mon projet d'ingénieur.</li>
+                <li><strong>Objectif personnel :</strong> Gagner en autonomie sur le diagnostic de pannes complexes sans aide extérieure immédiate.</li>
+            </ul>
+        </div>
+    </section>
+
     <footer id="contact">
-        <p>&copy; [cite_start]2025 Martin Bretonnière - Caen (14000) [cite: 15]</p>
-        <p>Étudiant IUT Grand Ouest Normandie</p>
+        <p>&copy; 2025 Martin Bretonnière - Caen (14000)</p>
+        <p>Étudiant IUT Grand Ouest Normandie | Portfolio Universitaire</p>
     </footer>
 
+    <script>
+        // Petit script pour gérer l'ouverture fluide des details (optionnel mais sympa)
+        const details = document.querySelectorAll("details");
+        details.forEach((targetDetail) => {
+            targetDetail.addEventListener("click", () => {
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute("open");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
