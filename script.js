@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (text === 'email') {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
-                window.open('https://mail.google.com/mail/?view=cm&fs=1&to=dairincome@gmail.com', '_blank').focus();
+                window.open('https://mail.google.com/mail/?view=cm&fs=1&to=Bretonnièrecome@gmail.com', '_blank').focus();
             });
         }
     });
@@ -132,10 +132,10 @@ window.addEventListener('load', function () {
     const heroTitle = document.querySelector('.typewriter');
     // Vérifie si la largeur de l'écran est supérieure à 510px
     if (heroTitle && window.innerWidth > 510) {
-        typeWriter(heroTitle, 'Côme Dairin', 100);
+        typeWriter(heroTitle, 'Martin Bretonnière', 100);
     } else if (heroTitle) {
         // Sinon, affiche directement le texte sans l'effet
-        heroTitle.innerHTML = 'Côme Dairin';
+        heroTitle.innerHTML = 'Martin Bretonnière';
     }
 });
 
@@ -213,3 +213,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // affichage par défaut : BUT 1
     filterByYear("1");
 });
+
