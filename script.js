@@ -105,33 +105,6 @@ function showSaeDetail(saeId) {
 }
 
 // ================================
-// ANIMATION TYPEWRITER
-// ================================
-document.addEventListener('DOMContentLoaded', function() {
-    const typewriterElement = document.querySelector('.typewriter');
-    if (typewriterElement) {
-        const text = 'Martin Bretonnière';
-        let index = 0;
-        
-        function type() {
-            if (index < text.length) {
-                typewriterElement.textContent = text.substring(0, index + 1);
-                index++;
-                setTimeout(type, 100);
-            } else {
-                setTimeout(() => {
-                    index = 0;
-                    typewriterElement.textContent = '';
-                    setTimeout(type, 500);
-                }, 3000);
-            }
-        }
-        
-        type();
-    }
-});
-
-// ================================
 // FERMER LE MENU MOBILE EN CLIQUANT DEHORS
 // ================================
 document.addEventListener('click', function(event) {
