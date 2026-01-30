@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio – Martin Bretonnière</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@1" />
+    <script src="https://kit.fontawesome.com/ed0ecb967b.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"><a href="#" onclick="showSection('home')" class="active">Martin Bretonnière</a></div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showSection('home')" class="active"><span
+                            class="material-symbols-rounded">home</span>Accueil</a></li>
+                <li><a href="#" onclick="showSection('about')"><span class="material-symbols-rounded">person</span>À
+                        propos</a></li>
+                <li><a href="#" onclick="showSection('portfolio')"><span
+                            class="material-symbols-rounded">work</span>Portfolio</a></li>
+                <li><a href="#" onclick="showSection('competences')"><span
+                            class="material-symbols-rounded">psychology</span>Compétences</a></li>
+            </ul>
+
+            <button class="mobile-menu" onclick="toggleMobileMenu()">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="home active">
+            <div class="hero">
+
+                <div id="left">
+                    <div class="hero-wrapper">
+                        <div class="typewriter-wrapper"><span class="typewriter"></span><span
+                                class="cursor blink">|</span></div>
+                        <div class="subtitles-wrapper">
+                            <p class="subtitle">Étudiant BUT Réseaux & Télécommunications <span
+                                    class="sub-symbol">◂</span></p>
+                            <p class="subtitle">Objectif Ingénieur Cybersécurité <span class="sub-symbol">◂</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="right">
+                    <a href="#" onclick="showSection('about')" class="btn hero-btn">
+                        <span class="material-symbols-rounded">person</span>
+                        Découvrir mon<br>parcours
+                    </a>
+                    <a href="#" onclick="showSection('portfolio')" class="btn hero-btn">
+                        <span class="material-symbols-rounded">work</span>
+                        Voir mes<br>projets
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom panel -->
+        <a class="bottom-btn" href="#" title="Mon GitHub"><i class="fa-brands fa-github"></i></a>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="content-card">
+                <h2>
+                    <span class="material-symbols-rounded">person</span>
+                    À propos de moi
+                </h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="face"></div>
+                    </div>
+                    <div class="about-text">
+                        <h2>Qui suis-je ?</h2>
+                        <p>
+                            Passionné par le fonctionnement des réseaux, j'ai orienté mon cursus vers le <strong>BUT Réseaux & Télécommunications</strong> pour acquérir les compétences techniques nécessaires pour sécuriser les infrastructures de demain. Actuellement en 2ème année, je poursuis mon apprentissage en approfondissant mes connaissances en administration de systèmes, en sécurisation de réseaux et développement en tout genre.
+                        </p>
+
+                        <p>
+                            Mon déclic pour la rigueur et la sécurité s'est confirmé lors de mon stage d'observation à la <strong>centrale nucléaire de Flamanville</strong>. J'y ai découvert qu'une procédure n'est pas à prendre à la légère, ce que j'applique désormais dans mes configurations réseaux et mes analyses de code.
+                        </p>
+
+                        <p>
+                            Mon objectif est de devenir <strong>Ingénieur en Cybersécurité</strong>, idéalement en Normandie. Je ne cherche pas seulement à apprendre des commandes, mais à comprendre les vulnérabilités pour mieux protéger les systèmes, une compétence que je construis progressivement depuis le début de cette deuxième année.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h2>
+                    <span class="material-symbols-rounded">school</span>
+                    Formation & Objectifs
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>
+                            <span class="material-symbols-rounded">engineering</span>
+                            Formation Actuelle
+                        </h4>
+                        <p>▸ BUT Réseaux et Télécommunications - 2ème année<br>
+                            ▸ IUT Grand Ouest Normandie - Caen<br>
+                            ▸ Spécialisation en cybersécurité</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>
+                            <span class="material-symbols-rounded">target</span>
+                            Objectif Professionnel
+                        </h4>
+                        <p>▸ Ingénieur en Cybersécurité<br>
+                            ▸ Protection des infrastructures<br>
+                            ▸ Région Normandie<br>
+                            ▸ Compréhension approfondie des vulnérabilités</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>
+                            <span class="material-symbols-rounded">trending_up</span>
+                            Évolution Souhaitée
+                        </h4>
+                        <p>▸ Approfondir administration système avancée<br>
+                            ▸ Sécurité offensive et défensive<br>
+                            ▸ Maîtrise des outils de pentesting<br>
+                            ▸ Alternance ciblée en cybersécurité</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section">
+            <div class="content-card">
+                <h2>
+                    <span class="material-symbols-rounded">work</span>
+                    Mon Portfolio – Situations d'Apprentissage
+                </h2>
+                <p>Ce portfolio retrace l'ensemble des projets (SAÉ) réalisés au cours de mes années de BUT Réseaux et
+                    Télécommunications.<br>
+                    Chaque projet témoigne de mon évolution technique et de ma capacité à mobiliser
+                    mes compétences dans des contextes variés.</p>
+            </div>
+
+            <div class="year-selector">
+                <a class="btn btn-secondary year-btn active" data-year="1">Année 1</a>
+                <a class="btn btn-secondary year-btn" data-year="2">Année 2</a>
+            </div>
+
+            <div class="sae-grid">
+                <!-- SAE 1.1 -->
+                <div class="sae-card" data-year="1" data-sae-id="1">
+                    <div class="sae-header">
+                        <div class="sae-title">SAE 11 : Hygiène Informatique & Cybersécurité</div>
+                        <div class="work-type group">Groupe</div>
+                    </div>
+                    <div class="sae-objective">
+                        <strong>Objectif :</strong> Acquisition des réflexes fondamentaux de sécurité à travers le MOOC SecNumAcadémie de l'ANSSI et obtention de la certification.
+                    </div>
+                    <div class="sae-section">
+                        <fieldset>
+                            <legend align="center"><span class="material-symbols-rounded">desktop_windows</span>Mots clés</legend>
+                            <div class="skill-tags">
+                                <span class="skill-tag">MOOC ANSSI</span>
+                                <span class="skill-tag">SecNumAcadémie</span>
+                                <span class="skill-tag">Rigueur</span>
+                                <span class="skill-tag">Cybersécurité</span>
+                                <span class="skill-tag">Bonnes pratiques</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assignment</span>Ma contribution</h4>
+                        <ul>
+                            <li>Pilotage de ma propre progression sur les modules de l'ANSSI en parallèle du travail de groupe</li>
+                            <li>Répartition des tâches pour la présentation orale</li>
+                            <li>Veille à comprendre les parties de mes camarades pour garder une vision globale</li>
+                        </ul>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assessment</span>Auto-évaluation</h4>
+                        <p>Défi principal : transformer des connaissances théoriques en réflexes pratiques.<br>
+                        Score au QCM final légèrement en dessous des attentes.<br>
+                        Apprentissage clé : la sécurité est avant tout une question de comportement quotidien.</p>
+                    </div>
+                    <div class="bottom-align">
+                        <div class="result-badge">
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Certification obtenue
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAE 1.2 -->
+                <div class="sae-card" data-year="1" data-sae-id="2">
+                    <div class="sae-header">
+                        <div class="sae-title">SAE 12 : Architecture Réseau</div>
+                        <div class="work-type group">Groupe</div>
+                    </div>
+                    <div class="sae-objective">
+                        <strong>Objectif :</strong> Conception et mise en place d'un réseau local d'entreprise sécurisé avec configuration d'équipements.
+                    </div>
+                    <div class="sae-section">
+                        <fieldset>
+                            <legend align="center"><span class="material-symbols-rounded">desktop_windows</span>Mots clés</legend>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Configuration équipements</span>
+                                <span class="skill-tag">Réseau local</span>
+                                <span class="skill-tag">Sécurité</span>
+                                <span class="skill-tag">Travail d'équipe</span>
+                                <span class="skill-tag">Documentation</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assignment</span>Ma contribution</h4>
+                        <ul>
+                            <li>Participation active à la configuration des équipements</li>
+                            <li>Rédaction des livrables techniques</li>
+                            <li>Visée d'un rendu très complet pour compenser les lacunes initiales</li>
+                        </ul>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assessment</span>Auto-évaluation</h4>
+                        <p>Vol de matériel ayant pénalisé l'oral.<br>
+                        Apprentissage : gestion de l'imprévu et du stress.<br>
+                        Prise de conscience : la documentation technique est aussi importante que la configuration.</p>
+                    </div>
+                    <div class="bottom-align">
+                        <div class="result-badge">
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Architecture fonctionnelle
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAE 1.3 -->
+                <div class="sae-card" data-year="1" data-sae-id="3">
+                    <div class="sae-header">
+                        <div class="sae-title">SAE 13 : Réflectométrie (DTF)</div>
+                        <div class="work-type group">Groupe</div>
+                    </div>
+                    <div class="sae-objective">
+                        <strong>Objectif :</strong> Diagnostic de câblage cuivre et fibre optique par réflectométrie pour identifier les défauts de transmission.
+                    </div>
+                    <div class="sae-section">
+                        <fieldset>
+                            <legend align="center"><span class="material-symbols-rounded">desktop_windows</span>Mots clés</legend>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Mesures Physiques</span>
+                                <span class="skill-tag">Réflectométrie</span>
+                                <span class="skill-tag">Fibre optique</span>
+                                <span class="skill-tag">Câblage</span>
+                                <span class="skill-tag">Précision</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assignment</span>Ma contribution</h4>
+                        <ul>
+                            <li>Concentration sur l'analyse des courbes de réflectométrie</li>
+                            <li>Identification des défauts de câblage</li>
+                            <li>Compréhension de la corrélation entre signal physique et réalité du câble</li>
+                        </ul>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assessment</span>Auto-évaluation</h4>
+                        <p>Manque de temps ayant entraîné des approximations sur les mesures de base.<br>
+                        Interprétation finale floue.<br>
+                        Leçon cruciale : la qualité des résultats finaux dépend de la précision des données initiales.</p>
+                    </div>
+                    <div class="bottom-align">
+                        <div class="result-badge">
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Mesures effectuées
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAE 1.4 -->
+                <div class="sae-card" data-year="1" data-sae-id="4">
+                    <div class="sae-header">
+                        <div class="sae-title">SAE 14 : Développement Web</div>
+                        <div class="work-type individual">Individuel</div>
+                    </div>
+                    <div class="sae-objective">
+                        <strong>Objectif :</strong> Création de mon identité numérique via un site web personnel et déploiement via GitHub.
+                    </div>
+                    <div class="sae-section">
+                        <fieldset>
+                            <legend align="center"><span class="material-symbols-rounded">desktop_windows</span>Mots clés</legend>
+                            <div class="skill-tags">
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">GitHub</span>
+                                <span class="skill-tag">Autonomie</span>
+                                <span class="skill-tag">Web Design</span>
+                                <span class="skill-tag">Normes W3C</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">engineering</span>Tâches réalisées</h4>
+                        <ul>
+                            <li>Codage "from scratch" sans templates pour maîtriser le code source</li>
+                            <li>Respect des normes W3C</li>
+                            <li>Isolation pour concentration sur la structure</li>
+                            <li>Découverte du versionning avec GitHub</li>
+                        </ul>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assessment</span>Auto-évaluation</h4>
+                        <p>Première expérience complète en développement web.<br>
+                        Erreur : ne pas avoir assez sollicité mes camarades.<br>
+                        Apprentissage : importance de la structure des fichiers pour la maintenabilité.</p>
+                    </div>
+                    <div class="bottom-align">
+                        <div class="result-badge">
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Site déployé
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAE 1.5 -->
+                <div class="sae-card" data-year="1" data-sae-id="5">
+                    <div class="sae-header">
+                        <div class="sae-title">SAE 15 : Données Dynamiques</div>
+                        <div class="work-type group">Groupe</div>
+                    </div>
+                    <div class="sae-objective">
+                        <strong>Objectif :</strong> Traitement statistique de données via une API (PokeAPI) avec JavaScript.
+                    </div>
+                    <div class="sae-section">
+                        <fieldset>
+                            <legend align="center"><span class="material-symbols-rounded">desktop_windows</span>Mots clés</legend>
+                            <div class="skill-tags">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">API REST</span>
+                                <span class="skill-tag">Logique Algo</span>
+                                <span class="skill-tag">Traitement données</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assignment</span>Ma contribution</h4>
+                        <ul>
+                            <li>Méthodologie en couches : structure HTML, style CSS, puis logique JS</li>
+                            <li>Travail en binôme pour maximiser l'apprentissage par les pairs</li>
+                            <li>Manipulation du DOM et gestion des événements asynchrones</li>
+                        </ul>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assessment</span>Auto-évaluation</h4>
+                        <p>Complexité : manipulation du DOM et événements asynchrones.<br>
+                        Apprentissage à lire la documentation technique de manière autonome.</p>
+                    </div>
+                    <div class="bottom-align">
+                        <div class="result-badge">
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Application fonctionnelle
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAE 2.1 -->
+                <div class="sae-card" data-year="2" data-sae-id="6">
+                    <div class="sae-header">
+                        <div class="sae-title">SAE 21 : Administration Réseau Avancée</div>
+                        <div class="work-type group">Groupe</div>
+                    </div>
+                    <div class="sae-objective">
+                        <strong>Objectif :</strong> Déploiement complet d'une infrastructure réseau pour petite structure avec VLANs et services avancés.
+                    </div>
+                    <div class="sae-section">
+                        <fieldset>
+                            <legend align="center"><span class="material-symbols-rounded">desktop_windows</span>Mots clés</legend>
+                            <div class="skill-tags">
+                                <span class="skill-tag">VLANs</span>
+                                <span class="skill-tag">Routage</span>
+                                <span class="skill-tag">Diagnostic</span>
+                                <span class="skill-tag">Services réseau</span>
+                                <span class="skill-tag">Documentation</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assignment</span>Ma contribution</h4>
+                        <ul>
+                            <li>Conception d'une architecture cohérente avec séparation des sous-réseaux</li>
+                            <li>Production d'une documentation complète des configurations</li>
+                            <li>Diagnostic de pannes (boucles réseau, conflits IP)</li>
+                        </ul>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assessment</span>Auto-évaluation</h4>
+                        <p>Difficultés rencontrées sur le diagnostic de pannes complexes.<br>
+                        Leçon apprise : importance de la préparation et de la rigueur lors de la configuration pour éviter les imprévus techniques.</p>
+                    </div>
+                    <div class="bottom-align">
+                        <div class="result-badge">
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Infrastructure fonctionnelle
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAE 2.2 -->
+                <div class="sae-card" data-year="2" data-sae-id="7">
+                    <div class="sae-header">
+                        <div class="sae-title">SAE 22 : Analyse Spectrale</div>
+                        <div class="work-type group">Groupe</div>
+                    </div>
+                    <div class="sae-objective">
+                        <strong>Objectif :</strong> Caractérisation de signaux radio et modélisation avec RTL-SDR.
+                    </div>
+                    <div class="sae-section">
+                        <fieldset>
+                            <legend align="center"><span class="material-symbols-rounded">desktop_windows</span>Mots clés</legend>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Traitement du Signal</span>
+                                <span class="skill-tag">RTL-SDR</span>
+                                <span class="skill-tag">Analyse spectrale</span>
+                                <span class="skill-tag">Radio</span>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assignment</span>Ma contribution</h4>
+                        <ul>
+                            <li>Utilisation d'une antenne RTL-SDR pour capter et visualiser des signaux réels</li>
+                            <li>Réalisation d'un compte-rendu structuré avec schémas et courbes</li>
+                            <li>Analyse de phénomènes parasites</li>
+                        </ul>
+                    </div>
+                    <div class="sae-section">
+                        <h4><span class="material-symbols-rounded">assessment</span>Auto-évaluation</h4>
+                        <p>Difficultés d'interprétation : phénomènes parasites (bruit de phase, lobes secondaires, diaphonie).<br>
+                        Nécessité de renforcer les bases en mathématiques pour l'analyse spectrale.</p>
+                    </div>
+                    <div class="bottom-align">
+                        <div class="result-badge">
+                            <span class="material-symbols-rounded">check_circle</span>
+                            Analyse réalisée
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Details Section -->
+        <section class="section" id="sae-details">
+            <!-- SAE 1.1 Details -->
+            <div class="sae-detail-container" data-sae-id="1">
+                <div class="sae-detail-header">
+                    <span class="material-symbols-rounded">security</span>
+                    SAE 11 : Hygiène Informatique & Cybersécurité
+                </div>
+
+                <!-- Présentation du projet -->
+                <div class="project-presentation">
+                    <div class="element-header">
+                        <span class="material-symbols-rounded">info</span>
+                        Présentation du projet
+                    </div>
+                    <p>Cette SAÉ constitue une <strong>première approche de la cybersécurité</strong> dans le cadre de ma formation en BUT RT. Le projet s'articule autour du MOOC SecNumAcadémie de l'ANSSI, avec pour objectif l'acquisition des réflexes fondamentaux de sécurité informatique.</p>
+                </div>
+
+                <!-- Analyse de positionnement sur les compétences -->
+                <div class="competence-analysis">
+                    <div class="element-header">
+                        <span class="material-symbols-rounded">psychology</span>
+                        Analyse de positionnement – Compétences visées
+                    </div>
+
+                    <h4>▸ Compétence RT1 : Administrer les réseaux et l'Internet ◂</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <p><strong>Niveau atteint : 85%</strong> – Compréhension des enjeux de sécurité</p>
+                    </div>
+                    <p><strong>Apprentissages critiques concernés :</strong></p>
+                    <ul>
+                        <li><strong>AC11.02</strong> – Comprendre l'architecture et les principes de l'information</li>
+                        <li><strong>AC11.04</strong> – Maîtriser les rôles des systèmes d'exploitation</li>
+                        <li><strong>AC11.05</strong> – Identifier les dysfonctionnements du réseau</li>
+                    </ul>
+                </div>
+
+                <!-- Réflexion et auto-évaluation -->
+                <div class="reflection-section">
+                    <div class="reflect-element-header">
+                        <span class="material-symbols-rounded">psychology_alt</span>
+                        Réflexion et auto-évaluation
+                    </div>
+
+                    <div class="reflect-highlight">
+                        J'ai piloté ma propre progression sur les modules de l'ANSSI en parallèle du travail de groupe. Pour la présentation orale, nous avons réparti les tâches, mais j'ai veillé à comprendre les parties de mes camarades pour garder une vision globale.
+                    </div>
+
+                    <div class="reflect-element">
+                        <span class="material-symbols-rounded">star</span>
+                        Points forts identifiés
+                    </div>
+                    <p><strong>Autonomie :</strong> Capacité à suivre les modules en autodidacte.</p>
+                    <p><strong>Travail d'équipe :</strong> Bonne coordination pour la présentation orale.</p>
+
+                    <div class="reflect-element">
+                        <span class="material-symbols-rounded">timeline</span>
+                        Axes d'amélioration
+                    </div>
+                    <p><strong>Application pratique :</strong> Transformer les connaissances théoriques en réflexes pratiques quotidiens.</p>
+
+                    <div class="reflect-element">
+                        <span class="material-symbols-rounded">construction</span>
+                        Ajustements pour progression
+                    </div>
+                    <p><strong>Pratique continue :</strong> Appliquer systématiquement les bonnes pratiques de sécurité dans tous mes projets.</p>
+                </div>
+            </div>
+
+            <!-- SAE 1.2 Details -->
+            <div class="sae-detail-container" data-sae-id="2">
+                <div class="sae-detail-header">
+                    <span class="material-symbols-rounded">router</span>
+                    SAE 12 : Architecture Réseau
+                </div>
+
+                <div class="project-presentation">
+                    <div class="element-header">
+                        <span class="material-symbols-rounded">info</span>
+                        Présentation du projet
+                    </div>
+                    <p>Ce projet avait pour objectif la <strong>conception et la mise en place d'un réseau local d'entreprise sécurisé</strong>. Il s'agissait de configurer des équipements réseau réels et de produire une documentation technique complète.</p>
+                </div>
+
+                <div class="competence-analysis">
+                    <div class="element-header">
+                        <span class="material-symbols-rounded">psychology</span>
+                        Analyse de positionnement – Compétences visées
+                    </div>
+
+                    <h4>▸ Compétence RT1 : Administrer les réseaux et l'Internet ◂</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <p><strong>Niveau atteint : 75%</strong> – Bases de configuration acquises</p>
+                    </div>
+                    <p><strong>Apprentissages critiques concernés :</strong></p>
+                    <ul>
+                        <li><strong>AC11.03</strong> – Configurer les fonctions de base du réseau local</li>
+                        <li><strong>AC11.06</strong> – Installer un poste client et sécuriser l'accès</li>
+                    </ul>
+                </div>
+
+                <div class="reflection-section">
+                    <div class="reflect-element-header">
+                        <span class="material-symbols-rounded">psychology_alt</span>
+                        Réflexion et auto-évaluation
+                    </div>
+
+                    <div class="reflect-highlight">
+                        J'ai participé activement à la configuration des équipements et à la rédaction des livrables techniques. Nous avons visé un rendu très complet pour compenser nos lacunes initiales.
+                    </div>
+
+                    <div class="reflect-element">
+                        <span class="material-symbols-rounded">star</span>
+                        Points forts identifiés
+                    </div>
+                    <p><strong>Documentation :</strong> Production de livrables techniques de qualité.</p>
+
+                    <div class="reflect-element">
+                        <span class="material-symbols-rounded">timeline</span>
+                        Axes d'amélioration
+                    </div>
+                    <p><strong>Gestion de l'imprévu :</strong> Apprendre à mieux anticiper et gérer les imprévus (vol de matériel).</p>
+                    <p><strong>Gestion du stress :</strong> Développer des stratégies pour gérer le stress lors des présentations orales.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Competences Section -->
+        <section id="competences" class="section">
+            <div class="content-card">
+                <h2>
+                    <span class="material-symbols-rounded">psychology</span>
+                    Bilan par Compétence (Niveau 1)
+                </h2>
+                <p>Le BUT Réseaux et Télécommunications vise le développement de 3 compétences principales en première année.<br>
+                    ▸ Voici mon auto-évaluation de mes acquis actuels :</p>
+            </div>
+
+            <div class="skills-wrapper">
+                <div class="skills-row">
+                    <div class="skill-category">
+                        <h4>
+                            <span class="material-symbols-rounded">router</span>
+                            RT1 - Administrer les Réseaux
+                        </h4>
+                        <p><strong>Niveau 1 :</strong> Assister l'administrateur du réseau</p>
+                        <fieldset>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Configuration équipements</span>
+                                <span class="skill-tag">VLANs</span>
+                                <span class="skill-tag">Routage</span>
+                                <span class="skill-tag">Services réseau</span>
+                                <span class="skill-tag">Diagnostic pannes</span>
+                            </div>
+                        </fieldset>
+                        <p class="bottom-align italic">▸ Via SAE 12 et 21<br>
+                            ▸ Bases acquises, diagnostic à améliorer</p>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>
+                            <span class="material-symbols-rounded">business</span>
+                            RT2 - Connecter les Usagers
+                        </h4>
+                        <p><strong>Niveau 1 :</strong> Découvrir les transmissions</p>
+                        <fieldset>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Réflectométrie</span>
+                                <span class="skill-tag">Fibre optique</span>
+                                <span class="skill-tag">Analyse spectrale</span>
+                                <span class="skill-tag">RTL-SDR</span>
+                                <span class="skill-tag">Mesures physiques</span>
+                            </div>
+                        </fieldset>
+                        <p class="bottom-align italic">▸ Via SAE 13 et 22<br>
+                            ▸ Outils maîtrisés, théorie à approfondir</p>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>
+                            <span class="material-symbols-rounded">code</span>
+                            RT3 - Créer des Outils R&T
+                        </h4>
+                        <p><strong>Niveau 1 :</strong> S'intégrer dans un service informatique</p>
+                        <fieldset>
+                            <div class="skill-tags">
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">API REST</span>
+                                <span class="skill-tag">Git/GitHub</span>
+                                <span class="skill-tag">Documentation</span>
+                            </div>
+                        </fieldset>
+                        <p class="bottom-align italic">▸ Via SAE 14 et 15<br>
+                            ▸ Bases solides, automatisation à développer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h2>
+                    <span class="material-symbols-rounded">trending_up</span>
+                    Bilan Global & Perspectives
+                </h2>
+                <div class="sae-section">
+                    <h4><span class="material-symbols-rounded">self_improvement</span>Évolution constatée</h4>
+                    <p>La première année a marqué une transition majeure. Je suis passé d'une vision "consommateur" de l'informatique à une posture de <strong>technicien capable de construire et diagnostiquer</strong>. J'ai appris que la compétence technique pure ne suffit pas : la documentation, la communication en équipe et la rigueur méthodologique sont tout aussi cruciales.</p>
+                </div>
+
+                <div class="sae-section">
+                    <h4><span class="material-symbols-rounded">rocket_launch</span>Plan d'évolution</h4>
+                    <ul>
+                        <li><strong>En cours (S3-S4) :</strong> Approfondir mes compétences en administration système avancée, sécurité réseau et développement d'applications métier</li>
+                        <li><strong>Court terme (fin S4) :</strong> Me focaliser sur les modules de sécurité offensive et défensive, préparer mon stage de fin de 2ème année</li>
+                        <li><strong>Moyen terme :</strong> Me spécialiser en cybersécurité et préparer mon projet d'ingénieur avec une alternance ciblée</li>
+                        <li><strong>Objectif personnel :</strong> Gagner en autonomie sur le diagnostic de pannes complexes et maîtriser les outils de pentesting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h2>
+                    <span class="material-symbols-rounded">contact_page</span>
+                    Contact & Liens
+                </h2>
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+                    <a href="#" class="btn">
+                        <span class="material-symbols-rounded">description</span>
+                        Voir mon CV
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <span class="material-symbols-rounded">code</span>
+                        Voir mon GitHub
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <span class="material-symbols-rounded">email</span>
+                        Me contacter
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Martin Bretonnière</h4>
+                    <p>Étudiant BUT Réseaux & Télécommunications<br>
+                        Objectif Ingénieur Cybersécurité</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="#" onclick="showSection('home')"><span
+                                class="material-symbols-rounded">home</span>Accueil</a>
+                        <a href="#" onclick="showSection('about')"><span class="material-symbols-rounded">person</span>À
+                            propos</a>
+                        <a href="#" onclick="showSection('portfolio')"><span
+                                class="material-symbols-rounded">work</span>Portfolio</a>
+                        <a href="#" onclick="showSection('competences')"><span
+                                class="material-symbols-rounded">psychology</span>Compétences</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact & Liens</h4>
+                    <div class="footer-links">
+                        <a href="#" target="_blank">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a href="#">
+                            <span class="material-symbols-rounded">email</span> Email
+                        </a>
+                        <a href="#">
+                            <span class="material-symbols-rounded">description</span> CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Martin Bretonnière – Portfolio BUT Réseaux & Télécommunications – IUT Grand Ouest Normandie, Caen (14000)</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
