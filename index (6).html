@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BUT Réseaux & Télécommunications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@1" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+    <!-- Particules d'arrière-plan animées -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Navigation fixe avec effet glassmorphism -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">▲</span>
+                <span class="logo-text">Portfolio RT</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#accueil" class="nav-link active" data-section="accueil">
+                    <span class="material-symbols-rounded">home</span>
+                    <span>Accueil</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <span class="material-symbols-rounded">person</span>
+                    <span>À propos</span>
+                </a>
+                <a href="#competences" class="nav-link" data-section="competences">
+                    <span class="material-symbols-rounded">psychology</span>
+                    <span>Compétences</span>
+                </a>
+                <a href="#portfolio" class="nav-link" data-section="portfolio">
+                    <span class="material-symbols-rounded">work</span>
+                    <span>Portfolio</span>
+                </a>
+                <a href="#projection" class="nav-link" data-section="projection">
+                    <span class="material-symbols-rounded">rocket_launch</span>
+                    <span>Projection</span>
+                </a>
+            </div>
+            
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Changer de thème">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section avec effet de machine à écrire -->
+    <section id="accueil" class="hero-section active-section">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-tag">BUT Réseaux & Télécommunications</div>
+                <h1 class="hero-title">
+                    <span class="typewriter-text" id="typewriter"></span>
+                    <span class="cursor">|</span>
+                </h1>
+                <h2 class="hero-subtitle">Martin Bretonnière</h2>
+                <p class="hero-description">
+                    Portfolio numérique documentant ma progression dans les compétences clés 
+                    du référentiel RT et mon parcours vers l'ingénierie cybersécurité
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary" data-nav="about">
+                        <span class="material-symbols-rounded">person</span>
+                        <span>Découvrir mon profil</span>
+                    </a>
+                    <a href="#portfolio" class="btn btn-secondary" data-nav="portfolio">
+                        <span class="material-symbols-rounded">work</span>
+                        <span>Voir mes projets</span>
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">SAÉ Réalisées</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Compétences RT</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Administration Réseau</h3>
+                        <p>Configuration & Sécurisation</p>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cybersécurité</h3>
+                        <p>Audit & Protection</p>
+                    </div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Développement</h3>
+                        <p>Scripts & Applications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scrollez pour découvrir</span>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Mon Parcours</span>
+                <h2 class="section-title">À propos de moi</h2>
+                <p class="section-subtitle">Étudiant passionné par la cybersécurité et les infrastructures réseau</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card main-card">
+                    <div class="profile-section">
+                        <div class="profile-image">
+                            <div class="profile-ring"></div>
+                            <img src="images/moi.jpg" alt="Martin Bretonnière">
+                        </div>
+                        <div class="profile-info">
+                            <h3>Martin Bretonnière</h3>
+                            <p class="profile-role">BUT R&T 2ème année - IUT Caen (Ifs)</p>
+                            <div class="profile-status">
+                                <span class="status-dot"></span>
+                                <span>Recherche stage 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-text">
+                        <h4><i class="fas fa-user-shield"></i> Qui suis-je ?</h4>
+                        <p>
+                            Âgé de 19 ans, je suis actuellement en 2ème année de BUT Réseaux & Télécommunications 
+                            à l'IUT de Caen (Ifs). Passionné par les réseaux et les nouvelles technologies, 
+                            je recherche un stage dans le domaine des Réseaux & Télécommunications.
+                        </p>
+                        <p>
+                            J'ai obtenu mon baccalauréat général avec mention Bien en 2024, avec les spécialités 
+                            Mathématiques et Physique-Chimie. Mon parcours m'a permis d'acquérir des compétences 
+                            solides en administration réseau, en développement Python et en traitement de données.
+                        </p>
+                        <p>
+                            <strong>Langues :</strong> Français (langue maternelle), Anglais (niveau courant), 
+                            Allemand (niveau débutant). Titulaire du permis de conduire depuis janvier 2025.
+                        </p>
+                    </div>
+                    
+                    <div class="quick-links">
+                        <a href="mailto:bretonnieremartin5@gmail.com" class="quick-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>bretonnieremartin5@gmail.com</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="tel:0780582441" class="quick-link">
+                            <i class="fas fa-phone"></i>
+                            <span>07 80 58 24 41</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#" class="quick-link" id="cv-link">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Télécharger mon CV</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="about-sidebar">
+                    <div class="sidebar-card career-card">
+                        <div class="card-header">
+                            <i class="fas fa-rocket"></i>
+                            <h4>Mon Avenir</h4>
+                        </div>
+                        <p class="career-goal">
+                            Devenir <strong>Ingénieur en Cybersécurité</strong> en poursuivant mes études en alternance.
+                        </p>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <strong>Aujourd'hui</strong>
+                                    <p>BUT 2 - Cybersécurité</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <strong>2025-2026</strong>
+                                    <p>BUT 3 en Alternance</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <strong>2026-2029</strong>
+                                    <p>École d'Ingénieurs (ISEN, ENSI)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card skills-card">
+                        <div class="card-header">
+                            <i class="fas fa-star"></i>
+                            <h4>Savoir-être</h4>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Rigueur</span>
+                            <span class="skill-tag">Curiosité</span>
+                            <span class="skill-tag">Adaptabilité</span>
+                            <span class="skill-tag">Esprit d'équipe</span>
+                            <span class="skill-tag">Autonomie</span>
+                            <span class="skill-tag">Pédagogie</span>
+                            <span class="skill-tag">Analyse</span>
+                            <span class="skill-tag">Gestion du stress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="competences" class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Expertise Technique</span>
+                <h2 class="section-title">Mes Compétences</h2>
+                <p class="section-subtitle">Référentiel BUT Réseaux & Télécommunications</p>
+            </div>
+            
+            <div class="competences-grid">
+                <div class="competence-card" data-competence="rt1">
+                    <div class="competence-header">
+                        <div class="competence-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="competence-badge">RT1</div>
+                    </div>
+                    <h3>Administrer les réseaux et l'internet</h3>
+                    <p class="competence-desc">
+                        Configuration, déploiement et maintenance d'infrastructures réseau LAN/WAN
+                    </p>
+                    <div class="competence-level">
+                        <span class="level-label">Niveau 2</span>
+                        <div class="level-bar">
+                            <div class="level-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="competence-skills">
+                        <span>Routage IP</span>
+                        <span>Commutateurs Cisco</span>
+                        <span>VLANs</span>
+                        <span>Protocoles</span>
+                    </div>
+                </div>
+                
+                <div class="competence-card" data-competence="rt2">
+                    <div class="competence-header">
+                        <div class="competence-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <div class="competence-badge">RT2</div>
+                    </div>
+                    <h3>Connecter les entreprises et les usagers</h3>
+                    <p class="competence-desc">
+                        Systèmes de transmission et protocoles de communication longue distance
+                    </p>
+                    <div class="competence-level">
+                        <span class="level-label">Niveau 1</span>
+                        <div class="level-bar">
+                            <div class="level-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="competence-skills">
+                        <span>Fibres optiques</span>
+                        <span>Télécoms</span>
+                        <span>Signaux</span>
+                        <span>Transmission</span>
+                    </div>
+                </div>
+                
+                <div class="competence-card" data-competence="rt3">
+                    <div class="competence-header">
+                        <div class="competence-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="competence-badge">RT3</div>
+                    </div>
+                    <h3>Créer des outils et des applications</h3>
+                    <p class="competence-desc">
+                        Développement de scripts et d'applications pour automatiser les tâches réseau
+                    </p>
+                    <div class="competence-level">
+                        <span class="level-label">Niveau 1</span>
+                        <div class="level-bar">
+                            <div class="level-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="competence-skills">
+                        <span>Python</span>
+                        <span>Bash</span>
+                        <span>Web</span>
+                        <span>Bases de données</span>
+                    </div>
+                </div>
+                
+                <div class="competence-card featured" data-competence="cyber1">
+                    <div class="competence-header">
+                        <div class="competence-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="competence-badge cyber">CYBER1</div>
+                    </div>
+                    <h3>Administrer un SI sécurisé</h3>
+                    <p class="competence-desc">
+                        Audit, protection et durcissement des systèmes d'information
+                    </p>
+                    <div class="competence-level">
+                        <span class="level-label">Niveau 1</span>
+                        <div class="level-bar">
+                            <div class="level-fill cyber" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="competence-skills">
+                        <span>Pentesting</span>
+                        <span>Active Directory</span>
+                        <span>Hardening</span>
+                        <span>VPN</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-stack">
+                <h3>Technologies maîtrisées</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-linux"></i>
+                        <span>Linux</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Cisco IOS</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-docker"></i>
+                        <span>Docker</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML/CSS</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <span>SQL</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Portfolio (SAÉ) -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Réalisations</span>
+                <h2 class="section-title">Portfolio SAÉ</h2>
+                <p class="section-subtitle">Situations d'Apprentissage et d'Évaluation</p>
+            </div>
+            
+            <div class="year-filter">
+                <button class="year-btn active" data-year="all">Tous</button>
+                <button class="year-btn" data-year="1">BUT 1</button>
+                <button class="year-btn" data-year="2">BUT 2</button>
+                <button class="year-btn" data-year="3">BUT 3</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- SAÉ 1.01 -->
+                <article class="sae-card" data-year="1" data-sae="101">
+                    <div class="sae-image">
+                        <img src="images/sae14.png" alt="SAÉ 1.01">
+                    </div>
+                    <div class="sae-header">
+                        <div class="sae-number">SAÉ 1.01</div>
+                        <div class="sae-badges">
+                            <span class="badge badge-rt1">RT1</span>
+                            <span class="badge badge-cyber">Sécurité</span>
+                        </div>
+                    </div>
+                    <h3>Hygiène informatique</h3>
+                    <p>Certification SecNumacadémie (ANSSI) - Obtention avec 90% de moyenne aux 4 modules</p>
+                    <div class="sae-meta">
+                        <span><i class="fas fa-user"></i> Individuel</span>
+                        <span><i class="fas fa-calendar"></i> S1</span>
+                    </div>
+                    <div class="sae-footer">
+                        <span class="sae-status completed">Validé - 90%</span>
+                        <button class="sae-more" data-modal="sae101">
+                            <span>Détails</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- SAÉ 1.02 -->
+                <article class="sae-card" data-year="1" data-sae="102">
+                    <div class="sae-image">
+                        <img src="images/sae12-2.png" alt="SAÉ 1.02">
+                    </div>
+                    <div class="sae-header">
+                        <div class="sae-number">SAÉ 1.02</div>
+                        <div class="sae-badges">
+                            <span class="badge badge-rt1">RT1</span>
+                        </div>
+                    </div>
+                    <h3>Réseaux informatiques</h3>
+                    <p>Conception et simulation d'infrastructure réseau multi-sites sur Cisco Packet Tracer</p>
+                    <div class="sae-meta">
+                        <span><i class="fas fa-users"></i> Binôme</span>
+                        <span><i class="fas fa-calendar"></i> S1</span>
+                    </div>
+                    <div class="sae-footer">
+                        <span class="sae-status completed">Validé</span>
+                        <button class="sae-more" data-modal="sae102">
+                            <span>Détails</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- SAÉ 1.03 -->
+                <article class="sae-card" data-year="1" data-sae="103">
+                    <div class="sae-image">
+                        <img src="images/sae13-2.png" alt="SAÉ 1.03">
+                    </div>
+                    <div class="sae-header">
+                        <div class="sae-number">SAÉ 1.03</div>
+                        <div class="sae-badges">
+                            <span class="badge badge-rt2">RT2</span>
+                        </div>
+                    </div>
+                    <h3>Fibres optiques</h3>
+                    <p>Mesures d'affaiblissement et caractérisation de câbles à fibres optiques</p>
+                    <div class="sae-meta">
+                        <span><i class="fas fa-users"></i> Groupe</span>
+                        <span><i class="fas fa-calendar"></i> S1</span>
+                    </div>
+                    <div class="sae-footer">
+                        <span class="sae-status completed">Validé</span>
+                        <button class="sae-more" data-modal="sae103">
+                            <span>Détails</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- SAÉ 1.04 -->
+                <article class="sae-card" data-year="1" data-sae="104">
+                    <div class="sae-image">
+                        <img src="images/sae15.png" alt="SAÉ 1.04">
+                    </div>
+                    <div class="sae-header">
+                        <div class="sae-number">SAÉ 1.04</div>
+                        <div class="sae-badges">
+                            <span class="badge badge-rt3">RT3</span>
+                        </div>
+                    </div>
+                    <h3>Site web One Piece</h3>
+                    <p>Création d'un site web thématique en HTML/CSS</p>
+                    <div class="sae-meta">
+                        <span><i class="fas fa-user"></i> Individuel</span>
+                        <span><i class="fas fa-calendar"></i> S1</span>
+                    </div>
+                    <div class="sae-footer">
+                        <span class="sae-status completed">Validé</span>
+                        <button class="sae-more" data-modal="sae104">
+                            <span>Détails</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- SAÉ 2.01 -->
+                <article class="sae-card" data-year="2" data-sae="201">
+                    <div class="sae-image">
+                        <img src="images/sae21.png" alt="SAÉ 2.01">
+                    </div>
+                    <div class="sae-header">
+                        <div class="sae-number">SAÉ 2.01</div>
+                        <div class="sae-badges">
+                            <span class="badge badge-rt1">RT1</span>
+                        </div>
+                    </div>
+                    <h3>Construire un réseau</h3>
+                    <p>Infrastructure réseau d'entreprise avec VLANs, services DHCP, DNS et routage inter-VLAN</p>
+                    <div class="sae-meta">
+                        <span><i class="fas fa-users"></i> Groupe</span>
+                        <span><i class="fas fa-calendar"></i> S2</span>
+                    </div>
+                    <div class="sae-footer">
+                        <span class="sae-status completed">Validé</span>
+                        <button class="sae-more" data-modal="sae201">
+                            <span>Détails</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- SAÉ 2.02 -->
+                <article class="sae-card" data-year="2" data-sae="202">
+                    <div class="sae-image">
+                        <img src="images/sae22-2.png" alt="SAÉ 2.02">
+                    </div>
+                    <div class="sae-header">
+                        <div class="sae-number">SAÉ 2.02</div>
+                        <div class="sae-badges">
+                            <span class="badge badge-rt2">RT2</span>
+                        </div>
+                    </div>
+                    <h3>MATLAB OnRamp</h3>
+                    <p>Formation complète MATLAB - Certification obtenue avec 100% de réussite</p>
+                    <div class="sae-meta">
+                        <span><i class="fas fa-user"></i> Individuel</span>
+                        <span><i class="fas fa-calendar"></i> S2</span>
+                    </div>
+                    <div class="sae-footer">
+                        <span class="sae-status completed">Validé - 100%</span>
+                        <button class="sae-more" data-modal="sae202">
+                            <span>Détails</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- SAÉ 2.04 -->
+                <article class="sae-card" data-year="2" data-sae="204">
+                    <div class="sae-image">
+                        <img src="images/sae24.png" alt="SAÉ 2.04">
+                    </div>
+                    <div class="sae-header">
+                        <div class="sae-number">SAÉ 2.04</div>
+                        <div class="sae-badges">
+                            <span class="badge badge-rt3">RT3</span>
+                        </div>
+                    </div>
+                    <h3>Instant Weather</h3>
+                    <p>Application météo en temps réel avec API externe et interface utilisateur moderne</p>
+                    <div class="sae-meta">
+                        <span><i class="fas fa-users"></i> Binôme</span>
+                        <span><i class="fas fa-calendar"></i> S2</span>
+                    </div>
+                    <div class="sae-footer">
+                        <span class="sae-status completed">Validé</span>
+                        <button class="sae-more" data-modal="sae204">
+                            <span>Détails</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- SAÉ 3.01 -->
+                <article class="sae-card" data-year="3" data-sae="301">
+                    <div class="sae-image">
+                        <img src="images/sae31-2.png" alt="SAÉ 3.01">
+                    </div>
+                    <div class="sae-header">
+                        <div class="sae-number">SAÉ 3.01</div>
+                        <div class="sae-badges">
+                            <span class="badge badge-rt2">RT2</span>
+                        </div>
+                    </div>
+                    <h3>Certification SRWE</h3>
+                    <p>Switching, Routing and Wireless Essentials - Examen Checkpoint et Final validés</p>
+                    <div class="sae-meta">
+                        <span><i class="fas fa-user"></i> Individuel</span>
+                        <span><i class="fas fa-calendar"></i> S3</span>
+                    </div>
+                    <div class="sae-footer">
+                        <span class="sae-status completed">Validé - 100%</span>
+                        <button class="sae-more" data-modal="sae301">
+                            <span>Détails</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- SAÉ 3.03 -->
+                <article class="sae-card featured" data-year="3" data-sae="303">
+                    <div class="sae-image">
+                        <img src="images/sae33-2.jpg" alt="SAÉ 3.03">
+                    </div>
+                    <div class="sae-header">
+                        <div class="sae-number">SAÉ 3.03</div>
+                        <div class="sae-badges">
+                            <span class="badge badge-rt1">RT1</span>
+                            <span class="badge badge-cyber">INFRA</span>
+                        </div>
+                    </div>
+                    <h3>Infrastructure multi-sites</h3>
+                    <p>Architecture réseau complexe avec switches Cisco en stack, routage avancé et services redondants</p>
+                    <div class="sae-meta">
+                        <span><i class="fas fa-users"></i> Groupe</span>
+                        <span><i class="fas fa-calendar"></i> S3</span>
+                    </div>
+                    <div class="sae-footer">
+                        <span class="sae-status completed">Validé</span>
+                        <button class="sae-more" data-modal="sae303">
+                            <span>Détails</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projection -->
+    <section id="projection" class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Vision</span>
+                <h2 class="section-title">Projection & Évolution</h2>
+                <p class="section-subtitle">De l'étudiant à l'expert : ma trajectoire professionnelle</p>
+            </div>
+            
+            <div class="projection-grid">
+                <div class="projection-card">
+                    <div class="projection-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>BUT & Alternance</h3>
+                    <p>
+                        Actuellement à la recherche d'une alternance pour ma troisième année de BUT,
+                        avec la volonté de poursuivre cette collaboration durant mon cycle d'ingénieur
+                        en cybersécurité. Je cherche une structure pour m'investir durablement et
+                        monter en compétences sur des infrastructures réelles.
+                    </p>
+                </div>
+                
+                <div class="projection-card featured">
+                    <div class="projection-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Cycle Ingénieur</h3>
+                    <p>
+                        Mon objectif est d'intégrer un cycle d'ingénieur en cybersécurité immédiatement
+                        après l'obtention de mon BUT. Je vise une collaboration de confiance sur le long
+                        terme : 4 années (BUT 3 + 3 ans d'école) au sein de la même entreprise pour
+                        évoluer d'assistant technique à ingénieur expert.
+                    </p>
+                    <div class="projection-timeline">
+                        <div class="timeline-step">
+                            <span>2025</span>
+                            <p>BUT 3 Alternance</p>
+                        </div>
+                        <div class="timeline-arrow">→</div>
+                        <div class="timeline-step">
+                            <span>2026-2029</span>
+                            <p>École d'Ingénieurs</p>
+                        </div>
+                        <div class="timeline-arrow">→</div>
+                        <div class="timeline-step">
+                            <span>2029+</span>
+                            <p>Ingénieur Cyber</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projection-card">
+                    <div class="projection-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cyberdéfense</h3>
+                    <p>
+                        À l'issue de mon cycle d'ingénieur, j'envisage de rejoindre des organismes
+                        de premier plan tels que la DGSI ou les unités de cyberdéfense des Armées (COMCYBER).
+                        Ce choix reflète mon engagement pour la protection de l'intérêt général et
+                        la gestion de crises complexes.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="posture-statement">
+                <div class="posture-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="posture-content">
+                    <h3>Ma Posture : Discipline & Performance</h3>
+                    <p>
+                        La discipline acquise à travers ma pratique sportive intensive est mon plus grand atout
+                        en cybersécurité. La rigueur nécessaire pour préparer une compétition est la même que
+                        celle requise pour ne laisser aucune faille dans une configuration de switch ou un
+                        rapport d'audit. <strong>Le stress ne paralyse pas mon analyse, il renforce ma concentration.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <span class="logo-icon">▲</span>
+                        <span>Portfolio RT</span>
+                    </div>
+                    <p>Étudiant BUT Réseaux & Télécommunications</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#accueil">Accueil</a>
+                    <a href="#about">À propos</a>
+                    <a href="#competences">Compétences</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#projection">Projection</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://github.com" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="/cdn-cgi/l/email-protection#e5868a8b91848691a5809d8488958980cb868a88" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Portfolio BUT RT - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script     <!-- Modales SAÉ -->
+    <div id="saeModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
