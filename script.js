@@ -143,7 +143,7 @@ function createParticles() {
         particle.style.opacity = Math.random() * 0.5 + 0.2;
         particle.style.animation = `float ${Math.random() * 10 + 5}s ease-in-out infinite`;
         particle.style.animationDelay = Math.random() * 5 + 's';
-        
+
         particlesContainer.appendChild(particle);
     }
 }
@@ -159,7 +159,7 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                
+
                 // Animer les barres de progression
                 if (entry.target.classList.contains('competence-card')) {
                     const levelFill = entry.target.querySelector('.level-fill');
@@ -223,13 +223,13 @@ function initPortfolioFilter() {
 // ==================== Effets hover sur les cartes ====================
 function initCardEffects() {
     const cards = document.querySelectorAll('.floating-card, .sae-card, .competence-card, .projection-card');
-    
+
     cards.forEach(card => {
-        card.addEventListener('mouseenter', function(e) {
+        card.addEventListener('mouseenter', function (e) {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             card.style.setProperty('--mouse-x', x + 'px');
             card.style.setProperty('--mouse-y', y + 'px');
         });
@@ -251,10 +251,10 @@ function smoothScrollToSection(sectionId) {
 function initExternalLinks() {
     const quickLinks = document.querySelectorAll('.quick-link');
     const socialLinks = document.querySelectorAll('.footer-social a');
-    
+
     // Ajouter effet de clic
     [...quickLinks, ...socialLinks].forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
@@ -266,7 +266,7 @@ function initExternalLinks() {
 // ==================== Animation des statistiques ====================
 function animateStats() {
     const stats = document.querySelectorAll('.stat-number');
-    
+
     stats.forEach(stat => {
         const text = stat.textContent;
         const hasPlus = text.includes('+');
@@ -275,7 +275,7 @@ function animateStats() {
         const increment = number / 50;
         const duration = 1500;
         const stepTime = duration / 50;
-        
+
         const timer = setInterval(() => {
             current += increment;
             if (current >= number) {
@@ -291,7 +291,7 @@ function animateStats() {
 // ==================== Gestion des modales SAÉ ====================
 function initSAEModals() {
     const saeCards = document.querySelectorAll('.sae-card');
-    
+
     saeCards.forEach(card => {
         const moreButton = card.querySelector('.sae-more');
         if (moreButton) {
@@ -316,7 +316,7 @@ function initParallax() {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const parallaxElements = document.querySelectorAll('.floating-card');
-        
+
         parallaxElements.forEach((el, index) => {
             const speed = 0.05 * (index + 1);
             el.style.transform = `translateY(${scrolled * speed}px)`;
@@ -355,13 +355,13 @@ function initCustomCursor() {
     function animate() {
         const dx = mouseX - cursorX;
         const dy = mouseY - cursorY;
-        
+
         cursorX += dx * 0.1;
         cursorY += dy * 0.1;
-        
+
         cursor.style.left = cursorX + 'px';
         cursor.style.top = cursorY + 'px';
-        
+
         requestAnimationFrame(animate);
     }
     animate();
@@ -420,7 +420,7 @@ function initKonamiCode() {
 
 function activateEasterEgg() {
     document.body.style.animation = 'rainbow 2s linear infinite';
-    
+
     // Ajouter l'animation rainbow si elle n'existe pas
     if (!document.getElementById('rainbow-animation')) {
         const style = document.createElement('style');
@@ -433,11 +433,11 @@ function activateEasterEgg() {
         `;
         document.head.appendChild(style);
     }
-    
+
     setTimeout(() => {
         document.body.style.animation = '';
     }, 5000);
-    
+
     console.log('🎉 Easter Egg activé! 🎉');
 }
 
@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     // initCustomCursor(); // Décommenter pour activer le curseur personnalisé
     initKonamiCode();
-    
+
     // Gérer le chargement de la page
     handlePageLoad();
 });
@@ -778,7 +778,7 @@ function initSAEModals() {
     const modalBody = document.getElementById('modalBody');
     const closeModal = document.getElementById('closeModal');
     const overlay = modal?.querySelector('.modal-overlay');
-    
+
     // Gérer les clics sur les boutons "Détails"
     document.querySelectorAll('.sae-more').forEach(button => {
         button.addEventListener('click', (e) => {
@@ -789,16 +789,16 @@ function initSAEModals() {
             }
         });
     });
-    
+
     // Fermer la modale
     if (closeModal) {
         closeModal.addEventListener('click', closeSAEModal);
     }
-    
+
     if (overlay) {
         overlay.addEventListener('click', closeSAEModal);
     }
-    
+
     // Fermer avec Échap
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal?.classList.contains('active')) {
@@ -811,9 +811,9 @@ function showSAEModal(saeId) {
     const modal = document.getElementById('saeModal');
     const modalBody = document.getElementById('modalBody');
     const data = saeDetails[saeId];
-    
+
     if (!data || !modal || !modalBody) return;
-    
+
     // Construire les badges
     const badgesHTML = data.badges.map(badge => {
         let badgeClass = '';
@@ -822,17 +822,17 @@ function showSAEModal(saeId) {
         else if (badge === 'RT3') badgeClass = 'badge-rt3';
         else if (badge.includes('Sécurité') || badge.includes('CYBER')) badgeClass = 'badge-cyber';
         else badgeClass = 'badge-rt1';
-        
+
         return `<span class="badge ${badgeClass}">${badge}</span>`;
     }).join('');
-    
+
     // Construire la galerie d'images
-    const galleryHTML = data.images && data.images.length > 0 
+    const galleryHTML = data.images && data.images.length > 0
         ? `<div class="modal-gallery">
             ${data.images.map(img => `<img src="${img}" alt="${data.title}" onclick="window.open('${img}', '_blank')">`).join('')}
            </div>`
         : '';
-    
+
     // Remplir la modale
     modalBody.innerHTML = `
         <h2>${data.title}</h2>
@@ -842,7 +842,7 @@ function showSAEModal(saeId) {
         ${galleryHTML}
         ${data.content}
     `;
-    
+
     // Afficher la modale
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
