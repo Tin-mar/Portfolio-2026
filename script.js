@@ -1,6 +1,30 @@
+// ==================== Navigation par sections (utilisé par index.html) ====================
+function showSection(sectionId) {
+    // Pas de section "competences" dans le HTML : redirection vers portfolio
+    if (sectionId === 'competences') sectionId = 'portfolio';
+    const target = document.getElementById(sectionId);
+    if (!target) return;
+    document.querySelectorAll('main section, .container section').forEach(section => {
+        section.style.display = section.id === sectionId ? 'block' : 'none';
+    });
+    // Mise à jour de l’état actif : nav + logo (liens avec showSection)
+    document.querySelectorAll('.nav-links a, header nav .logo a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('onclick') && a.getAttribute('onclick').includes("'" + sectionId + "'")) {
+            a.classList.add('active');
+        }
+    });
+}
+
+function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    if (navLinks) navLinks.classList.toggle('open');
+}
+
 // ==================== Gestion du thème ====================
 function initTheme() {
     const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
     const currentTheme = localStorage.getItem('theme') || 'dark';
 
     // Appliquer le thème au chargement
@@ -21,8 +45,10 @@ function initTheme() {
     });
 }
 
+
 function updateThemeIcon(theme) {
     const icon = document.querySelector('#theme-toggle i');
+    if (!icon) return;
     if (theme === 'dark') {
         icon.className = 'fas fa-sun';
     } else {
@@ -38,11 +64,13 @@ function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section, .hero-section');
 
-    // Hamburger menu toggle
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    if (hamburger && navMenu) {
+        // Hamburger menu toggle
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
 
     // Navigation smooth scroll et activation
     navLinks.forEach(link => {
@@ -53,8 +81,8 @@ function initNavigation() {
 
             if (targetSection) {
                 // Fermer le menu mobile
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                hamburger?.classList.remove('active');
+                navMenu?.classList.remove('active');
 
                 // Masquer toutes les sections
                 sections.forEach(section => {
@@ -93,26 +121,29 @@ function initNavigation() {
     });
 
     // Navbar background au scroll
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+    if (navbar) {
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
 
-        if (currentScroll > 100) {
-            navbar.style.background = 'var(--bg-overlay)';
-            navbar.style.boxShadow = 'var(--shadow-md)';
-        } else {
-            navbar.style.background = 'var(--bg-overlay)';
-            navbar.style.boxShadow = 'none';
-        }
+            if (currentScroll > 100) {
+                navbar.style.background = 'var(--bg-overlay)';
+                navbar.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                navbar.style.background = 'var(--bg-overlay)';
+                navbar.style.boxShadow = 'none';
+            }
 
-        lastScroll = currentScroll;
-    });
+            lastScroll = currentScroll;
+        });
+    }
 }
 
 // ==================== Effet de machine à écrire ====================
 function typeWriter() {
-    const text = "Portfolio RT";
-    const typewriterElement = document.getElementById('typewriter');
+    const typewriterElement = document.getElementById('typewriter') || document.querySelector('.typewriter');
+    if (!typewriterElement) return;
+    const text = "Martin Bretonnière";
     let i = 0;
 
     function type() {
@@ -129,6 +160,7 @@ function typeWriter() {
 // ==================== Particules animées ====================
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
+    if (!particlesContainer) return;
     const particleCount = 50;
 
     for (let i = 0; i < particleCount; i++) {
@@ -266,11 +298,13 @@ function initExternalLinks() {
 // ==================== Animation des statistiques ====================
 function animateStats() {
     const stats = document.querySelectorAll('.stat-number');
+    if (!stats.length) return;
 
     stats.forEach(stat => {
         const text = stat.textContent;
         const hasPlus = text.includes('+');
-        const number = parseInt(text.replace('+', ''));
+        const number = parseInt(text.replace('+', ''), 10);
+        if (isNaN(number)) return;
         let current = 0;
         const increment = number / 50;
         const duration = 1500;
@@ -393,10 +427,10 @@ function handlePageLoad() {
         }, 500);
     }
 
-    // Lancer l'effet typewriter
+    // Lancer l'effet typewriter (ne fait rien si l'élément n'existe pas)
     typeWriter();
 
-    // Animer les stats après un court délai
+    // Animer les stats après un court délai (ne fait rien si aucun .stat-number)
     setTimeout(animateStats, 1000);
 }
 
@@ -441,8 +475,22 @@ function activateEasterEgg() {
     console.log('🎉 Easter Egg activé! 🎉');
 }
 
+// #region agent log
+function sendDebugLog(payload) {
+    const body = JSON.stringify({ ...payload, timestamp: Date.now(), sessionId: 'debug-session' });
+    fetch('http://127.0.0.1:7242/ingest/d11d4825-6dd0-42f0-9245-cf601afcf0a5', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body }).catch(function () {});
+}
+// #endregion
+
 // ==================== Initialisation au chargement du DOM ====================
 document.addEventListener('DOMContentLoaded', () => {
+    // Empêcher le scroll vers # sur les liens de navigation interne
+    document.body.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href="#"]');
+        if (a && a.getAttribute('onclick') && a.getAttribute('onclick').indexOf('showSection') !== -1) {
+            e.preventDefault();
+        }
+    });
     // Initialiser toutes les fonctionnalités
     initTheme();
     initNavigation();
@@ -459,6 +507,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gérer le chargement de la page
     handlePageLoad();
 });
+
+// #region agent log
+window.addEventListener('load', function () {
+    const log = sendDebugLog;
+    var link = document.querySelector('link[href="style.css"]');
+    var sheetLoaded = !!(link && link.sheet);
+    var sheetHref = link ? link.href : '';
+    var ruleCount = 0;
+    try { if (link && link.sheet && link.sheet.cssRules) ruleCount = link.sheet.cssRules.length; } catch (e) { ruleCount = -1; }
+    log({ location: 'script.js:load', message: 'H1 style.css load', hypothesisId: 'H1', data: { sheetLoaded, sheetHref, ruleCount } });
+    var hero = document.querySelector('.hero');
+    var left = document.getElementById('left');
+    var right = document.getElementById('right');
+    var hasHeroSection = document.querySelector('.hero-section') !== null;
+    log({ location: 'script.js:load', message: 'H2 HTML structure', hypothesisId: 'H2', data: { hasHero: !!hero, heroClassName: hero ? hero.className : '', hasLeft: !!left, hasRight: !!right, hasHeroSection } });
+    var heroDisplay = '', leftDisplay = '', rightDisplay = '';
+    if (hero) heroDisplay = getComputedStyle(hero).display;
+    if (left) leftDisplay = getComputedStyle(left).display;
+    if (right) rightDisplay = getComputedStyle(right).display;
+    log({ location: 'script.js:load', message: 'H3 computed layout', hypothesisId: 'H3', data: { heroDisplay, leftDisplay, rightDisplay } });
+    var rootBg = getComputedStyle(document.documentElement).getPropertyValue('--bg-main').trim();
+    log({ location: 'script.js:load', message: 'H4 :root vars', hypothesisId: 'H4', data: { rootBgLength: rootBg.length } });
+    var bodyBg = getComputedStyle(document.body).backgroundColor;
+    var bodyFont = getComputedStyle(document.body).fontFamily;
+    var navLinksDisplay = '';
+    var nl = document.querySelector('.nav-links');
+    if (nl) navLinksDisplay = getComputedStyle(nl).display;
+    log({ location: 'script.js:load', message: 'H5 cascade', hypothesisId: 'H5', data: { bodyBg, bodyFont: bodyFont ? bodyFont.substring(0, 40) : '', navLinksDisplay } });
+});
+// #endregion
 
 // ==================== Gestion du redimensionnement ====================
 let resizeTimer;
