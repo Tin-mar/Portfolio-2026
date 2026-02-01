@@ -2,14 +2,6 @@
 
 lien du site Web : https://tin-mar.github.io/Portfolio-2026/
 
-## 🎨 Caractéristiques
-
-### Design
-- **Mode sombre/clair** : Thème personnalisable avec persistance
-- **Animations fluides** : Particules animées, effets de survol, transitions
-- **Responsive** : Optimisé pour tous les écrans (mobile, tablette, desktop)
-- **Glassmorphism** : Effets de transparence et de flou modernes
-
 ### Sections
 1. **Accueil** : Présentation avec statistiques et appels à l'action
 2. **À propos** : Profil détaillé, parcours, contacts
