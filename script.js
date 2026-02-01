@@ -1,13 +1,11 @@
 // ==================== Navigation par sections (utilisé par index.html) ====================
 function showSection(sectionId) {
-    // Pas de section "competences" dans le HTML : redirection vers portfolio
-    if (sectionId === 'competences') sectionId = 'portfolio';
     const target = document.getElementById(sectionId);
     if (!target) return;
     document.querySelectorAll('main section, .container section').forEach(section => {
         section.style.display = section.id === sectionId ? 'block' : 'none';
     });
-    // Mise à jour de l’état actif : nav + logo (liens avec showSection)
+    // Mise à jour de l'état actif : nav + logo (liens avec showSection)
     document.querySelectorAll('.nav-links a, header nav .logo a').forEach(a => {
         a.classList.remove('active');
         if (a.getAttribute('onclick') && a.getAttribute('onclick').includes("'" + sectionId + "'")) {
@@ -324,16 +322,35 @@ function animateStats() {
 
 // ==================== Gestion des modales SAÉ ====================
 function initSAEModals() {
-    const saeCards = document.querySelectorAll('.sae-card');
+    const modal = document.getElementById('saeModal');
+    const modalBody = document.getElementById('modalBody');
+    const closeModal = document.getElementById('closeModal');
+    const overlay = modal?.querySelector('.modal-overlay');
 
-    saeCards.forEach(card => {
-        const moreButton = card.querySelector('.sae-more');
-        if (moreButton) {
-            moreButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const saeId = card.getAttribute('data-sae');
-                showSAEDetail(saeId);
-            });
+    // Gérer les clics sur les boutons "Détails"
+    document.querySelectorAll('.sae-more').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const modalId = button.getAttribute('data-modal');
+            if (modalId && saeDetails[modalId]) {
+                showSAEModal(modalId);
+            }
+        });
+    });
+
+    // Fermer la modale
+    if (closeModal) {
+        closeModal.addEventListener('click', closeSAEModal);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', closeSAEModal);
+    }
+
+    // Fermer avec Échap
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal?.classList.contains('active')) {
+            closeSAEModal();
         }
     });
 }
@@ -499,7 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPortfolioFilter();
     initCardEffects();
     initExternalLinks();
-    initSAEModals(); // Ajout de l'initialisation des modales
+    initSAEModals();
     initParallax();
     // initCustomCursor(); // Décommenter pour activer le curseur personnalisé
     initKonamiCode();
@@ -851,40 +868,6 @@ const saeDetails = {
 };
 
 // ==================== Gestion des modales SAÉ ====================
-function initSAEModals() {
-    const modal = document.getElementById('saeModal');
-    const modalBody = document.getElementById('modalBody');
-    const closeModal = document.getElementById('closeModal');
-    const overlay = modal?.querySelector('.modal-overlay');
-
-    // Gérer les clics sur les boutons "Détails"
-    document.querySelectorAll('.sae-more').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const modalId = button.getAttribute('data-modal');
-            if (modalId && saeDetails[modalId]) {
-                showSAEModal(modalId);
-            }
-        });
-    });
-
-    // Fermer la modale
-    if (closeModal) {
-        closeModal.addEventListener('click', closeSAEModal);
-    }
-
-    if (overlay) {
-        overlay.addEventListener('click', closeSAEModal);
-    }
-
-    // Fermer avec Échap
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal?.classList.contains('active')) {
-            closeSAEModal();
-        }
-    });
-}
-
 function showSAEModal(saeId) {
     const modal = document.getElementById('saeModal');
     const modalBody = document.getElementById('modalBody');
@@ -933,4 +916,3 @@ function closeSAEModal() {
         document.body.style.overflow = '';
     }
 }
-
