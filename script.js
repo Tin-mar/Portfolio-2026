@@ -916,3 +916,16 @@ function closeSAEModal() {
         document.body.style.overflow = '';
     }
 }
+
+// Force le navigateur à remonter tout en haut au chargement et au rafraîchissement
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+} else {
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    }
+}
+
+window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
+});
