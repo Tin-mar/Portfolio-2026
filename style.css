@@ -2262,7 +2262,7 @@ section#home .hero-btn:hover {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
-/* Grille des compétences */
+/* Grille des compétences (utilisée dans la section "Démarche Réflexive") */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -2276,12 +2276,12 @@ section#home .hero-btn:hover {
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
-    height: 100%; /* Pour que toutes les cartes aient la même hauteur */
+    height: 100%;
 }
 
 /* 1. Formation Actuelle - Thème Cyan (Primary) */
 .skill-category:nth-child(1) {
-    background: rgba(0, 242, 255, 0.05); /* Fond très léger */
+    background: rgba(0, 242, 255, 0.05);
     border-left: 4px solid var(--primary);
 }
 .skill-category:nth-child(1) h4 {
@@ -2315,7 +2315,7 @@ section#home .hero-btn:hover {
 /* Effets au survol (Hover) */
 .skill-category:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08); /* Éclaircissement au survol */
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .skill-category:nth-child(1):hover { box-shadow: var(--glow-primary); }
@@ -2349,4 +2349,262 @@ section#home .hero-btn:hover {
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--text-secondary);
+}
+
+/* ==================== Compétences : Skills Wrapper (référentiel BUT RT) ==================== */
+
+/* Conteneur global des deux rangées de compétences */
+.skills-wrapper {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Rangée de 3 cartes (compétences 1-3) */
+.skills-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* Rangée de 2 cartes centrées (compétences Cyber 4-5) */
+.skills-row--two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 820px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Carte de compétence dans le référentiel */
+.skills-wrapper .skill-category {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    height: auto; /* override du height:100% global si nécessaire */
+}
+
+/* Barre colorée en haut de chaque carte */
+.skills-wrapper .skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary);
+    transition: background var(--transition-normal);
+}
+
+/* Titre avec icône */
+.skills-wrapper .skill-category h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.skills-wrapper .skill-category h4 .material-symbols-rounded {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    color: var(--primary);
+}
+
+/* Description du niveau */
+.skills-wrapper .skill-category > p:first-of-type {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+/* Fieldset (conteneur des tags) */
+.skills-wrapper .skill-category fieldset {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+    padding: 0.75rem 0 0;
+}
+
+.skills-wrapper .skill-category fieldset .skill-tags {
+    margin-top: 0;
+}
+
+/* Paragraphe de bas (références projets) — poussé vers le bas */
+.skills-wrapper .skill-category .bottom-align {
+    margin-top: auto;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Utilitaire italique */
+.italic {
+    font-style: italic;
+}
+
+/* ── Couleurs par carte dans la première rangée (3 compétences) ── */
+
+/* Carte 1 : Administrer les réseaux — Cyan */
+.skills-row .skill-category:nth-child(1) {
+    background: rgba(0, 242, 255, 0.04);
+    border-left: 4px solid var(--primary);
+}
+.skills-row .skill-category:nth-child(1)::before {
+    background: var(--primary);
+}
+.skills-row .skill-category:nth-child(1) h4 .material-symbols-rounded {
+    color: var(--primary);
+}
+.skills-row .skill-category:nth-child(1):hover {
+    border-color: var(--primary);
+    box-shadow: var(--glow-primary);
+}
+
+/* Carte 2 : Connecter entreprises — Rose */
+.skills-row .skill-category:nth-child(2) {
+    background: rgba(255, 0, 110, 0.04);
+    border-left: 4px solid var(--secondary);
+}
+.skills-row .skill-category:nth-child(2)::before {
+    background: var(--secondary);
+}
+.skills-row .skill-category:nth-child(2) h4 .material-symbols-rounded {
+    color: var(--secondary);
+}
+.skills-row .skill-category:nth-child(2):hover {
+    border-color: var(--secondary);
+    box-shadow: var(--glow-secondary);
+}
+
+/* Carte 3 : Créer des outils — Violet */
+.skills-row .skill-category:nth-child(3) {
+    background: rgba(131, 56, 236, 0.04);
+    border-left: 4px solid var(--accent);
+}
+.skills-row .skill-category:nth-child(3)::before {
+    background: var(--accent);
+}
+.skills-row .skill-category:nth-child(3) h4 .material-symbols-rounded {
+    color: var(--accent);
+}
+.skills-row .skill-category:nth-child(3):hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(131, 56, 236, 0.3);
+}
+
+/* ── Couleurs pour les deux cartes Cyber (deuxième rangée) ── */
+
+/* Carte 4 : [Cyber] Administrer SI — Orange */
+.skills-row--two .skill-category:nth-child(1) {
+    background: rgba(255, 165, 0, 0.04);
+    border-left: 4px solid #ffa500;
+}
+.skills-row--two .skill-category:nth-child(1)::before {
+    background: #ffa500;
+}
+.skills-row--two .skill-category:nth-child(1) h4 .material-symbols-rounded {
+    color: #ffa500;
+}
+.skills-row--two .skill-category:nth-child(1):hover {
+    border-color: #ffa500;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+}
+
+/* Carte 5 : [Cyber] Surveiller SI — Vert */
+.skills-row--two .skill-category:nth-child(2) {
+    background: rgba(0, 255, 100, 0.04);
+    border-left: 4px solid #00ff64;
+}
+.skills-row--two .skill-category:nth-child(2)::before {
+    background: #00ff64;
+}
+.skills-row--two .skill-category:nth-child(2) h4 .material-symbols-rounded {
+    color: #00ff64;
+}
+.skills-row--two .skill-category:nth-child(2):hover {
+    border-color: #00ff64;
+    box-shadow: 0 0 20px rgba(0, 255, 100, 0.3);
+}
+
+/* ── Survol générique pour les cartes du skills-wrapper ── */
+.skills-wrapper .skill-category:hover {
+    transform: translateY(-4px);
+}
+
+/* ── Responsive du référentiel ── */
+@media (max-width: 1024px) {
+    .skills-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .skills-row--two {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .skills-row,
+    .skills-row--two {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+}
+
+/* ==================== Compétences : listes dans content-card ==================== */
+/* Les <ul> dans .content-card > .sae-section (utilisés dans "Démarche Réflexive") */
+.content-card .sae-section {
+    margin-bottom: 1.5rem;
+}
+
+.content-card .sae-section h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+.content-card .sae-section h4 .material-symbols-rounded {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.content-card .sae-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content-card .sae-section ul li {
+    position: relative;
+    padding-left: 1.25rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.content-card .sae-section ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    color: var(--primary);
+    font-size: 1rem;
 }
